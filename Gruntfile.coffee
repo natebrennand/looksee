@@ -10,7 +10,7 @@ module.exports = (grunt) ->
 
 		concat:
 			js:
-				src:	['src/static/js/**/*.js', 'src/static/lib/*.js']
+				src:	['static/js/**/*.js', 'static/lib/*.js']
 				dest:	'generated/app.js'
 
 		ngmin:
@@ -19,22 +19,22 @@ module.exports = (grunt) ->
 				dest:	'generated/app.ngmin.js'
 			dev:
 				src:	['generated/app.js']
-				dest:	'src/static/jsmin/app.js'
+				dest:	'static/jsmin/app.js'
 
 		uglify:
 			deploy:
 				src:	'generated/app.ngmin.js'
-				dest:	'src/static/jsmin/app.min.js'
+				dest:	'static/jsmin/app.min.js'
 
 		sass:
 			deploy:
-				src:	['src/static/styles/style.scss']
-				dest:	'src/static/styles/style.min.css'
+				src:	['static/styles/style.scss']
+				dest:	'static/styles/style.min.css'
 
 		watch:
 			sass:
 				files:
-					['src/static/styles/**.scss']
+					['static/styles/**.scss']
 				tasks:
 					['sass']
 				options:
@@ -42,7 +42,7 @@ module.exports = (grunt) ->
 
 			scripts:
 				files:
-					['src/static/js/**/*.js']
+					['static/js/**/*.js']
 				tasks:
 					['default']
 				options:
