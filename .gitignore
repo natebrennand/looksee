@@ -19,7 +19,10 @@ generated
 src/static/styles/style.min.css
 
 # libraries
-!src/static/lib
+!static/lib
+
+# compiled code
+static/jsmin
 
 #secrets
 src/config/secrets.sh
