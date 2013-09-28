@@ -5,3 +5,5 @@
 # Flask config
 export FLASK_DEBUG='TRUE'
 
+# secrets
+source secrets.sh

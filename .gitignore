@@ -21,3 +21,9 @@ src/static/styles/style.min.css
 # libraries
 !src/static/lib
 
+#secrets
+src/config/secrets.sh
+
+# symlinks
+src/static
+

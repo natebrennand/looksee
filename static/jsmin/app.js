@@ -1,40 +1,3 @@
-var app = angular.module('app', ['app.home']);
-app.config([
-  '$routeProvider',
-  function ($routeProvider) {
-    $routeProvider.when('/', {
-      templateUrl: 'static/partials/home.html',
-      controller: 'HomeController'
-    }).otherwise({ redirectTo: '/' });
-  }
-]);
-angular.module('app.home', []).controller('HomeController', [
-  '$scope',
-  function ($scope) {
-    return;
-  }
-]);
-angular.module('app.letters', []).controller('AController', [
-  '$scope',
-  '$http',
-  function ($scope, $http) {
-    $scope.text = 'This is text from the controller for view "/a"';
-    $scope.lowercase = function () {
-      data = { letters: $scope.apiText };
-      $http.post('/lowercase', data).success(function (response) {
-        console.log(response);
-        $scope.apiText = response.letters;
-      }).error(function (err) {
-        console.log(err.message);
-      });
-    };
-  }
-]).controller('BController', [
-  '$scope',
-  function ($scope) {
-    $scope.text = 'This is text from the controller for view "/a"';
-  }
-]);
 (function (P, T, q) {
   'use strict';
   function m(b, a, c) {
@@ -45,7 +8,7 @@ angular.module('app.letters', []).controller('AController', [
           d != 'prototype' && d != 'length' && d != 'name' && b.hasOwnProperty(d) && a.call(c, b[d], d);
       else if (b.forEach && b.forEach !== m)
         b.forEach(a, c);
-      else if (!b || typeof b.length !== 'number' ? 0 : typeof b.hasOwnProperty != 'function' && typeof b.constructor != 'function' || b instanceof K || ca && b instanceof ca || wa.call(b) !== '[object Object]' || typeof b.callee === 'function')
+      else if (!b || typeof b.length !== 'number' ? 0 : typeof b.hasOwnProperty != 'function' && typeof b.constructor != 'function' || b instanceof L || aa && b instanceof aa || ma.call(b) !== '[object Object]' || typeof b.callee === 'function')
         for (d = 0; d < b.length; d++)
           a.call(c, b[d], d);
       else
@@ -53,59 +16,59 @@ angular.module('app.letters', []).controller('AController', [
           b.hasOwnProperty(d) && a.call(c, b[d], d);
     return b;
   }
-  function mb(b) {
+  function nb(b) {
     var a = [], c;
     for (c in b)
       b.hasOwnProperty(c) && a.push(c);
     return a.sort();
   }
-  function fc(b, a, c) {
-    for (var d = mb(b), e = 0; e < d.length; e++)
+  function hc(b, a, c) {
+    for (var d = nb(b), e = 0; e < d.length; e++)
       a.call(c, b[d[e]], d[e]);
     return d;
   }
-  function nb(b) {
+  function ob(b) {
     return function (a, c) {
       b(c, a);
     };
   }
   function xa() {
-    for (var b = aa.length, a; b;) {
+    for (var b = Z.length, a; b;) {
       b--;
-      a = aa[b].charCodeAt(0);
+      a = Z[b].charCodeAt(0);
       if (a == 57)
-        return aa[b] = 'A', aa.join('');
+        return Z[b] = 'A', Z.join('');
       if (a == 90)
-        aa[b] = '0';
+        Z[b] = '0';
       else
-        return aa[b] = String.fromCharCode(a + 1), aa.join('');
+        return Z[b] = String.fromCharCode(a + 1), Z.join('');
     }
-    aa.unshift('0');
-    return aa.join('');
+    Z.unshift('0');
+    return Z.join('');
   }
-  function ob(b, a) {
+  function pb(b, a) {
     a ? b.$$hashKey = a : delete b.$$hashKey;
   }
-  function v(b) {
+  function D(b) {
     var a = b.$$hashKey;
     m(arguments, function (a) {
       a !== b && m(a, function (a, c) {
         b[c] = a;
       });
     });
-    ob(b, a);
+    pb(b, a);
     return b;
   }
   function G(b) {
     return parseInt(b, 10);
   }
   function ya(b, a) {
-    return v(new (v(function () {
+    return D(new (D(function () {
     }, { prototype: b }))(), a);
   }
-  function C() {
+  function s() {
   }
-  function ma(b) {
+  function na(b) {
     return b;
   }
   function I(b) {
@@ -113,40 +76,40 @@ angular.module('app.letters', []).controller('AController', [
       return b;
     };
   }
-  function w(b) {
+  function u(b) {
     return typeof b == 'undefined';
   }
-  function y(b) {
+  function v(b) {
     return typeof b != 'undefined';
   }
-  function L(b) {
+  function M(b) {
     return b != null && typeof b == 'object';
   }
   function B(b) {
     return typeof b == 'string';
   }
-  function Qa(b) {
+  function Ra(b) {
     return typeof b == 'number';
   }
-  function na(b) {
-    return wa.apply(b) == '[object Date]';
+  function oa(b) {
+    return ma.apply(b) == '[object Date]';
   }
   function E(b) {
-    return wa.apply(b) == '[object Array]';
+    return ma.apply(b) == '[object Array]';
   }
   function H(b) {
     return typeof b == 'function';
   }
-  function oa(b) {
+  function Sa(b) {
+    return ma.apply(b) == '[object RegExp]';
+  }
+  function pa(b) {
     return b && b.document && b.location && b.alert && b.setInterval;
   }
-  function Q(b) {
-    return B(b) ? b.replace(/^\s*/, '').replace(/\s*$/, '') : b;
-  }
-  function gc(b) {
+  function ic(b) {
     return b && (b.nodeName || b.bind && b.find);
   }
-  function Ra(b, a, c) {
+  function Ta(b, a, c) {
     var d = [];
     m(b, function (b, g, h) {
       d.push(a.call(c, b, g, h));
@@ -161,13 +124,13 @@ angular.module('app.letters', []).controller('AController', [
         return c;
     return -1;
   }
-  function Sa(b, a) {
+  function Ua(b, a) {
     var c = za(b, a);
     c >= 0 && b.splice(c, 1);
     return a;
   }
   function U(b, a) {
-    if (oa(b) || b && b.$evalAsync && b.$watch)
+    if (pa(b) || b && b.$evalAsync && b.$watch)
       throw Error('Can\'t copy Window or Scope');
     if (a) {
       if (b === a)
@@ -182,19 +145,19 @@ angular.module('app.letters', []).controller('AController', [
         });
         for (var d in b)
           a[d] = U(b[d]);
-        ob(a, c);
+        pb(a, c);
       }
     } else
-      (a = b) && (E(b) ? a = U(b, []) : na(b) ? a = new Date(b.getTime()) : L(b) && (a = U(b, {})));
+      (a = b) && (E(b) ? a = U(b, []) : oa(b) ? a = new Date(b.getTime()) : Sa(b) ? a = RegExp(b.source) : M(b) && (a = U(b, {})));
     return a;
   }
-  function hc(b, a) {
+  function jc(b, a) {
     var a = a || {}, c;
     for (c in b)
       b.hasOwnProperty(c) && c.substr(0, 2) !== '$$' && (a[c] = b[c]);
     return a;
   }
-  function fa(b, a) {
+  function ea(b, a) {
     if (b === a)
       return !0;
     if (b === null || a === null)
@@ -204,21 +167,25 @@ angular.module('app.letters', []).controller('AController', [
     var c = typeof b, d;
     if (c == typeof a && c == 'object')
       if (E(b)) {
+        if (!E(a))
+          return !1;
         if ((c = b.length) == a.length) {
           for (d = 0; d < c; d++)
-            if (!fa(b[d], a[d]))
+            if (!ea(b[d], a[d]))
               return !1;
           return !0;
         }
-      } else if (na(b))
-        return na(a) && b.getTime() == a.getTime();
+      } else if (oa(b))
+        return oa(a) && b.getTime() == a.getTime();
+      else if (Sa(b) && Sa(a))
+        return b.toString() == a.toString();
       else {
-        if (b && b.$evalAsync && b.$watch || a && a.$evalAsync && a.$watch || oa(b) || oa(a))
+        if (b && b.$evalAsync && b.$watch || a && a.$evalAsync && a.$watch || pa(b) || pa(a) || E(a))
           return !1;
         c = {};
         for (d in b)
           if (!(d.charAt(0) === '$' || H(b[d]))) {
-            if (!fa(b[d], a[d]))
+            if (!ea(b[d], a[d]))
               return !1;
             c[d] = !0;
           }
@@ -229,7 +196,7 @@ angular.module('app.letters', []).controller('AController', [
       }
     return !1;
   }
-  function Ta(b, a) {
+  function Va(b, a) {
     var c = arguments.length > 2 ? ha.call(arguments, 2) : [];
     return H(a) && !(a instanceof RegExp) ? c.length ? function () {
       return arguments.length ? a.apply(b, c.concat(ha.call(arguments, 0))) : a.apply(b, c);
@@ -237,57 +204,63 @@ angular.module('app.letters', []).controller('AController', [
       return arguments.length ? a.apply(b, arguments) : a.call(b);
     } : a;
   }
-  function ic(b, a) {
+  function kc(b, a) {
     var c = a;
-    /^\$+/.test(b) ? c = q : oa(a) ? c = '$WINDOW' : a && T === a ? c = '$DOCUMENT' : a && a.$evalAsync && a.$watch && (c = '$SCOPE');
+    /^\$+/.test(b) ? c = q : pa(a) ? c = '$WINDOW' : a && T === a ? c = '$DOCUMENT' : a && a.$evalAsync && a.$watch && (c = '$SCOPE');
     return c;
   }
-  function da(b, a) {
-    return JSON.stringify(b, ic, a ? '  ' : null);
+  function ba(b, a) {
+    return typeof b === 'undefined' ? q : JSON.stringify(b, kc, a ? '  ' : null);
   }
-  function pb(b) {
+  function qb(b) {
     return B(b) ? JSON.parse(b) : b;
   }
-  function Ua(b) {
-    b && b.length !== 0 ? (b = z('' + b), b = !(b == 'f' || b == '0' || b == 'false' || b == 'no' || b == 'n' || b == '[]')) : b = !1;
+  function Wa(b) {
+    b && b.length !== 0 ? (b = y('' + b), b = !(b == 'f' || b == '0' || b == 'false' || b == 'no' || b == 'n' || b == '[]')) : b = !1;
     return b;
   }
-  function pa(b) {
-    b = u(b).clone();
+  function qa(b) {
+    b = w(b).clone();
     try {
       b.html('');
     } catch (a) {
     }
-    var c = u('<div>').append(b).html();
+    var c = w('<div>').append(b).html();
     try {
-      return b[0].nodeType === 3 ? z(c) : c.match(/^(<[^>]+>)/)[1].replace(/^<([\w\-]+)/, function (a, b) {
-        return '<' + z(b);
+      return b[0].nodeType === 3 ? y(c) : c.match(/^(<[^>]+>)/)[1].replace(/^<([\w\-]+)/, function (a, b) {
+        return '<' + y(b);
       });
     } catch (d) {
-      return z(c);
+      return y(c);
     }
   }
-  function Va(b) {
+  function rb(b) {
+    try {
+      return decodeURIComponent(b);
+    } catch (a) {
+    }
+  }
+  function Xa(b) {
     var a = {}, c, d;
     m((b || '').split('&'), function (b) {
-      b && (c = b.split('='), d = decodeURIComponent(c[0]), a[d] = y(c[1]) ? decodeURIComponent(c[1]) : !0);
+      b && (c = b.split('='), d = rb(c[0]), v(d) && (a[d] = v(c[1]) ? rb(c[1]) : !0));
     });
     return a;
   }
-  function qb(b) {
+  function sb(b) {
     var a = [];
     m(b, function (b, d) {
-      a.push(Wa(d, !0) + (b === !0 ? '' : '=' + Wa(b, !0)));
+      a.push(Ya(d, !0) + (b === !0 ? '' : '=' + Ya(b, !0)));
     });
     return a.length ? a.join('&') : '';
   }
-  function Xa(b) {
-    return Wa(b, !0).replace(/%26/gi, '&').replace(/%3D/gi, '=').replace(/%2B/gi, '+');
+  function Za(b) {
+    return Ya(b, !0).replace(/%26/gi, '&').replace(/%3D/gi, '=').replace(/%2B/gi, '+');
   }
-  function Wa(b, a) {
+  function Ya(b, a) {
     return encodeURIComponent(b).replace(/%40/gi, '@').replace(/%3A/gi, ':').replace(/%24/g, '$').replace(/%2C/gi, ',').replace(/%20/g, a ? '%20' : '+');
   }
-  function jc(b, a) {
+  function lc(b, a) {
     function c(a) {
       a && d.push(a);
     }
@@ -314,9 +287,9 @@ angular.module('app.letters', []).controller('AController', [
     });
     e && a(e, g ? [g] : []);
   }
-  function rb(b, a) {
+  function tb(b, a) {
     var c = function () {
-        b = u(b);
+        b = w(b);
         a = a || [];
         a.unshift([
           '$provide',
@@ -325,7 +298,7 @@ angular.module('app.letters', []).controller('AController', [
           }
         ]);
         a.unshift('ng');
-        var c = sb(a);
+        var c = ub(a);
         c.invoke([
           '$rootScope',
           '$rootElement',
@@ -343,30 +316,37 @@ angular.module('app.letters', []).controller('AController', [
     if (P && !d.test(P.name))
       return c();
     P.name = P.name.replace(d, '');
-    Ya.resumeBootstrap = function (b) {
+    $a.resumeBootstrap = function (b) {
       m(b, function (b) {
         a.push(b);
       });
       c();
     };
   }
-  function Za(b, a) {
+  function ab(b, a) {
     a = a || '_';
-    return b.replace(kc, function (b, d) {
+    return b.replace(mc, function (b, d) {
       return (d ? a : '') + b.toLowerCase();
     });
   }
-  function $a(b, a, c) {
+  function bb(b, a, c) {
     if (!b)
       throw Error('Argument \'' + (a || '?') + '\' is ' + (c || 'required'));
     return b;
   }
-  function qa(b, a, c) {
+  function ra(b, a, c) {
     c && E(b) && (b = b[b.length - 1]);
-    $a(H(b), a, 'not a function, got ' + (b && typeof b == 'object' ? b.constructor.name || 'Object' : typeof b));
+    bb(H(b), a, 'not a function, got ' + (b && typeof b == 'object' ? b.constructor.name || 'Object' : typeof b));
     return b;
   }
-  function lc(b) {
+  function cb(b, a, c) {
+    if (!a)
+      return b;
+    for (var a = a.split('.'), d, e = b, g = a.length, h = 0; h < g; h++)
+      d = a[h], b && (b = (e = b)[d]);
+    return !c && H(b) ? Va(e, b) : b;
+  }
+  function nc(b) {
     function a(a, b, e) {
       return a[b] || (a[b] = e());
     }
@@ -412,122 +392,124 @@ angular.module('app.letters', []).controller('AController', [
       };
     });
   }
-  function tb(b) {
-    return b.replace(mc, function (a, b, d, e) {
+  function vb(b) {
+    return b.replace(oc, function (a, b, d, e) {
       return e ? d.toUpperCase() : d;
-    }).replace(nc, 'Moz$1');
+    }).replace(pc, 'Moz$1');
   }
-  function ab(b, a) {
-    function c() {
-      var e;
-      for (var b = [this], c = a, h, f, i, j, k, l; b.length;) {
-        h = b.shift();
-        f = 0;
-        for (i = h.length; f < i; f++) {
-          j = u(h[f]);
-          c ? j.triggerHandler('$destroy') : c = !c;
+  function db(b, a, c, d) {
+    function e(b) {
+      var f;
+      var e = c && b ? [this.filter(b)] : [this], i = a, j, k, l, n, o, p;
+      if (!d || b != null)
+        for (; e.length;) {
+          j = e.shift();
           k = 0;
-          for (e = (l = j.children()).length, j = e; k < j; k++)
-            b.push(ca(l[k]));
+          for (l = j.length; k < l; k++) {
+            n = w(j[k]);
+            i ? n.triggerHandler('$destroy') : i = !i;
+            o = 0;
+            for (f = (p = n.children()).length, n = f; o < n; o++)
+              e.push(aa(p[o]));
+          }
         }
-      }
-      return d.apply(this, arguments);
+      return g.apply(this, arguments);
     }
-    var d = ca.fn[b], d = d.$original || d;
-    c.$original = d;
-    ca.fn[b] = c;
+    var g = aa.fn[b], g = g.$original || g;
+    e.$original = g;
+    aa.fn[b] = e;
   }
-  function K(b) {
-    if (b instanceof K)
+  function L(b) {
+    if (b instanceof L)
       return b;
-    if (!(this instanceof K)) {
+    if (!(this instanceof L)) {
       if (B(b) && b.charAt(0) != '<')
         throw Error('selectors not implemented');
-      return new K(b);
+      return new L(b);
     }
     if (B(b)) {
       var a = T.createElement('div');
       a.innerHTML = '<div>&#160;</div>' + b;
       a.removeChild(a.firstChild);
-      bb(this, a.childNodes);
+      eb(this, a.childNodes);
       this.remove();
     } else
-      bb(this, b);
+      eb(this, b);
   }
-  function cb(b) {
+  function fb(b) {
     return b.cloneNode(!0);
   }
-  function ra(b) {
-    ub(b);
+  function sa(b) {
+    wb(b);
     for (var a = 0, b = b.childNodes || []; a < b.length; a++)
-      ra(b[a]);
+      sa(b[a]);
   }
-  function vb(b, a, c) {
-    var d = ba(b, 'events');
-    ba(b, 'handle') && (w(a) ? m(d, function (a, c) {
-      db(b, c, a);
+  function xb(b, a, c) {
+    var d = $(b, 'events');
+    $(b, 'handle') && (u(a) ? m(d, function (a, c) {
+      gb(b, c, a);
       delete d[c];
-    }) : w(c) ? (db(b, a, d[a]), delete d[a]) : Sa(d[a], c));
+    }) : u(c) ? (gb(b, a, d[a]), delete d[a]) : Ua(d[a] || [], c));
   }
-  function ub(b) {
+  function wb(b) {
     var a = b[Aa], c = Ba[a];
-    c && (c.handle && (c.events.$destroy && c.handle({}, '$destroy'), vb(b)), delete Ba[a], b[Aa] = q);
+    c && (c.handle && (c.events.$destroy && c.handle({}, '$destroy'), xb(b)), delete Ba[a], b[Aa] = q);
   }
-  function ba(b, a, c) {
+  function $(b, a, c) {
     var d = b[Aa], d = Ba[d || -1];
-    if (y(c))
-      d || (b[Aa] = d = ++oc, d = Ba[d] = {}), d[a] = c;
+    if (v(c))
+      d || (b[Aa] = d = ++qc, d = Ba[d] = {}), d[a] = c;
     else
       return d && d[a];
   }
-  function wb(b, a, c) {
-    var d = ba(b, 'data'), e = y(c), g = !e && y(a), h = g && !L(a);
-    !d && !h && ba(b, 'data', d = {});
+  function yb(b, a, c) {
+    var d = $(b, 'data'), e = v(c), g = !e && v(a), h = g && !M(a);
+    !d && !h && $(b, 'data', d = {});
     if (e)
       d[a] = c;
     else if (g)
       if (h)
         return d && d[a];
       else
-        v(d, a);
+        D(d, a);
     else
       return d;
   }
   function Ca(b, a) {
     return (' ' + b.className + ' ').replace(/[\n\t]/g, ' ').indexOf(' ' + a + ' ') > -1;
   }
-  function xb(b, a) {
+  function zb(b, a) {
     a && m(a.split(' '), function (a) {
-      b.className = Q((' ' + b.className + ' ').replace(/[\n\t]/g, ' ').replace(' ' + Q(a) + ' ', ' '));
+      b.className = S((' ' + b.className + ' ').replace(/[\n\t]/g, ' ').replace(' ' + S(a) + ' ', ' '));
     });
   }
-  function yb(b, a) {
+  function Ab(b, a) {
     a && m(a.split(' '), function (a) {
       if (!Ca(b, a))
-        b.className = Q(b.className + ' ' + Q(a));
+        b.className = S(b.className + ' ' + S(a));
     });
   }
-  function bb(b, a) {
+  function eb(b, a) {
     if (a)
-      for (var a = !a.nodeName && y(a.length) && !oa(a) ? a : [a], c = 0; c < a.length; c++)
+      for (var a = !a.nodeName && v(a.length) && !pa(a) ? a : [a], c = 0; c < a.length; c++)
         b.push(a[c]);
   }
-  function zb(b, a) {
+  function Bb(b, a) {
     return Da(b, '$' + (a || 'ngController') + 'Controller');
   }
   function Da(b, a, c) {
-    b = u(b);
+    b = w(b);
     for (b[0].nodeType == 9 && (b = b.find('html')); b.length;) {
       if (c = b.data(a))
         return c;
       b = b.parent();
     }
   }
-  function Ab(b, a) {
+  function Cb(b, a) {
     var c = Ea[a.toLowerCase()];
-    return c && Bb[b.nodeName] && c;
+    return c && Db[b.nodeName] && c;
   }
-  function pc(b, a) {
+  function rc(b, a) {
     var c = function (c, e) {
       if (!c.preventDefault)
         c.preventDefault = function () {
@@ -539,7 +521,7 @@ angular.module('app.letters', []).controller('AController', [
         };
       if (!c.target)
         c.target = c.srcElement || T;
-      if (w(c.defaultPrevented)) {
+      if (u(c.defaultPrevented)) {
         var g = c.preventDefault;
         c.preventDefault = function () {
           c.defaultPrevented = !0;
@@ -553,12 +535,12 @@ angular.module('app.letters', []).controller('AController', [
       m(a[e || c.type], function (a) {
         a.call(b, c);
       });
-      Z <= 8 ? (c.preventDefault = null, c.stopPropagation = null, c.isDefaultPrevented = null) : (delete c.preventDefault, delete c.stopPropagation, delete c.isDefaultPrevented);
+      V <= 8 ? (c.preventDefault = null, c.stopPropagation = null, c.isDefaultPrevented = null) : (delete c.preventDefault, delete c.stopPropagation, delete c.isDefaultPrevented);
     };
     c.elem = b;
     return c;
   }
-  function ga(b) {
+  function fa(b) {
     var a = typeof b, c;
     if (a == 'object' && b !== null)
       if (typeof (c = b.$$hashKey) == 'function')
@@ -574,26 +556,26 @@ angular.module('app.letters', []).controller('AController', [
   function Fa(b) {
     m(b, this.put, this);
   }
-  function eb() {
+  function hb() {
   }
-  function Cb(b) {
+  function Eb(b) {
     var a, c;
     if (typeof b == 'function') {
       if (!(a = b.$inject))
-        a = [], c = b.toString().replace(qc, ''), c = c.match(rc), m(c[1].split(sc), function (b) {
-          b.replace(tc, function (b, c, d) {
+        a = [], c = b.toString().replace(sc, ''), c = c.match(tc), m(c[1].split(uc), function (b) {
+          b.replace(vc, function (b, c, d) {
             a.push(d);
           });
         }), b.$inject = a;
     } else
-      E(b) ? (c = b.length - 1, qa(b[c], 'fn'), a = b.slice(0, c)) : qa(b, 'fn', !0);
+      E(b) ? (c = b.length - 1, ra(b[c], 'fn'), a = b.slice(0, c)) : ra(b, 'fn', !0);
     return a;
   }
-  function sb(b) {
+  function ub(b) {
     function a(a) {
       return function (b, c) {
-        if (L(b))
-          m(b, nb(a));
+        if (M(b))
+          m(b, ob(a));
         else
           return a(b, c);
       };
@@ -613,15 +595,15 @@ angular.module('app.letters', []).controller('AController', [
       m(a, function (a) {
         if (!j.get(a))
           if (j.put(a, !0), B(a)) {
-            var c = sa(a);
+            var c = ta(a);
             b = b.concat(e(c.requires)).concat(c._runBlocks);
             try {
               for (var d = c._invokeQueue, c = 0, f = d.length; c < f; c++) {
-                var g = d[c], h = g[0] == '$injector' ? l : l.get(g[0]);
-                h[g[1]].apply(h, g[2]);
+                var g = d[c], p = g[0] == '$injector' ? l : l.get(g[0]);
+                p[g[1]].apply(p, g[2]);
               }
-            } catch (p) {
-              throw p.message && (p.message += ' from ' + a), p;
+            } catch (h) {
+              throw h.message && (h.message += ' from ' + a), h;
             }
           } else if (H(a))
             try {
@@ -636,7 +618,7 @@ angular.module('app.letters', []).controller('AController', [
               throw o.message && (o.message += ' from ' + String(a[a.length - 1])), o;
             }
           else
-            qa(a, 'module');
+            ra(a, 'module');
       });
       return b;
     }
@@ -656,10 +638,10 @@ angular.module('app.letters', []).controller('AController', [
           }
       }
       function d(a, b, e) {
-        var f = [], j = Cb(a), g, h, i;
+        var f = [], j = Eb(a), g, h, p;
         h = 0;
         for (g = j.length; h < g; h++)
-          i = j[h], f.push(e && e.hasOwnProperty(i) ? e[i] : c(i));
+          p = j[h], f.push(e && e.hasOwnProperty(p) ? e[p] : c(p));
         a.$inject || (a = a[g]);
         switch (b ? -1 : f.length) {
         case 0:
@@ -696,10 +678,10 @@ angular.module('app.letters', []).controller('AController', [
           c.prototype = (E(a) ? a[a.length - 1] : a).prototype;
           c = new c();
           e = d(a, c, b);
-          return L(e) ? e : c;
+          return M(e) ? e : c;
         },
         get: c,
-        annotate: Cb
+        annotate: Eb
       };
     }
     var h = {}, f = 'Provider', i = [], j = new Fa(), k = {
@@ -736,11 +718,11 @@ angular.module('app.letters', []).controller('AController', [
         return o.invoke(a.$get, a);
       });
     m(e(b), function (a) {
-      o.invoke(a || C);
+      o.invoke(a || s);
     });
     return o;
   }
-  function uc() {
+  function wc() {
     var b = !0;
     this.disableAutoScrolling = function () {
       b = !1;
@@ -753,7 +735,7 @@ angular.module('app.letters', []).controller('AController', [
         function e(a) {
           var b = null;
           m(a, function (a) {
-            !b && z(a.nodeName) === 'a' && (b = a);
+            !b && y(a.nodeName) === 'a' && (b = a);
           });
           return b;
         }
@@ -771,89 +753,89 @@ angular.module('app.letters', []).controller('AController', [
       }
     ];
   }
-  function vc(b, a, c, d) {
+  function xc(b, a, c, d) {
     function e(a) {
       try {
         a.apply(null, ha.call(arguments, 1));
       } finally {
         if (p--, p === 0)
-          for (; s.length;)
+          for (; z.length;)
             try {
-              s.pop()();
+              z.pop()();
             } catch (b) {
               c.error(b);
             }
       }
     }
     function g(a, b) {
-      (function V() {
-        m(t, function (a) {
+      (function yc() {
+        m(r, function (a) {
           a();
         });
-        x = b(V, a);
+        x = b(yc, a);
       }());
     }
     function h() {
-      M != f.url() && (M = f.url(), m(N, function (a) {
+      N != f.url() && (N = f.url(), m(K, function (a) {
         a(f.url());
       }));
     }
     var f = this, i = a[0], j = b.location, k = b.history, l = b.setTimeout, n = b.clearTimeout, o = {};
     f.isMock = !1;
-    var p = 0, s = [];
+    var p = 0, z = [];
     f.$$completeOutstandingRequest = e;
     f.$$incOutstandingRequestCount = function () {
       p++;
     };
     f.notifyWhenNoOutstandingRequests = function (a) {
-      m(t, function (a) {
+      m(r, function (a) {
         a();
       });
-      p === 0 ? a() : s.push(a);
+      p === 0 ? a() : z.push(a);
     };
-    var t = [], x;
+    var r = [], x;
     f.addPollFn = function (a) {
-      w(x) && g(100, l);
-      t.push(a);
+      u(x) && g(100, l);
+      r.push(a);
       return a;
     };
-    var M = j.href, A = a.find('base');
+    var N = j.href, A = a.find('base'), J = null;
     f.url = function (a, b) {
       if (a) {
-        if (M != a)
-          return M = a, d.history ? b ? k.replaceState(null, '', a) : (k.pushState(null, '', a), A.attr('href', A.attr('href'))) : b ? j.replace(a) : j.href = a, f;
+        if (N != a)
+          return N = a, d.history ? b ? k.replaceState(null, '', a) : (k.pushState(null, '', a), A.attr('href', A.attr('href'))) : b ? (j.replace(a), J = a) : (j.href = a, J = null), f;
       } else
-        return j.href.replace(/%27/g, '\'');
+        return J || j.href.replace(/%27/g, '\'');
     };
-    var N = [], J = !1;
+    var K = [], C = !1;
     f.onUrlChange = function (a) {
-      J || (d.history && u(b).bind('popstate', h), d.hashchange ? u(b).bind('hashchange', h) : f.addPollFn(h), J = !0);
-      N.push(a);
+      C || (d.history && w(b).bind('popstate', h), d.hashchange ? w(b).bind('hashchange', h) : f.addPollFn(h), C = !0);
+      K.push(a);
       return a;
     };
     f.baseHref = function () {
       var a = A.attr('href');
       return a ? a.replace(/^https?\:\/\/[^\/]*/, '') : '';
     };
-    var r = {}, $ = '', R = f.baseHref();
+    var ga = {}, Q = '', t = f.baseHref();
     f.cookies = function (a, b) {
       var d, e, f, j;
       if (a)
         if (b === q)
-          i.cookie = escape(a) + '=;path=' + R + ';expires=Thu, 01 Jan 1970 00:00:00 GMT';
+          i.cookie = escape(a) + '=;path=' + t + ';expires=Thu, 01 Jan 1970 00:00:00 GMT';
         else {
           if (B(b))
-            d = (i.cookie = escape(a) + '=' + escape(b) + ';path=' + R).length + 1, d > 4096 && c.warn('Cookie \'' + a + '\' possibly not set or overflowed because it was too large (' + d + ' > 4096 bytes)!');
+            d = (i.cookie = escape(a) + '=' + escape(b) + ';path=' + t).length + 1, d > 4096 && c.warn('Cookie \'' + a + '\' possibly not set or overflowed because it was too large (' + d + ' > 4096 bytes)!');
         }
       else {
-        if (i.cookie !== $) {
-          $ = i.cookie;
-          d = $.split('; ');
-          r = {};
+        if (i.cookie !== Q) {
+          Q = i.cookie;
+          d = Q.split('; ');
+          ga = {};
           for (f = 0; f < d.length; f++)
-            e = d[f], j = e.indexOf('='), j > 0 && (a = unescape(e.substring(0, j)), r[a] === q && (r[a] = unescape(e.substring(j + 1))));
+            e = d[f], j = e.indexOf('='), j > 0 && (a = unescape(e.substring(0, j)), ga[a] === q && (ga[a] = unescape(e.substring(j + 1))));
         }
-        return r;
+        return ga;
       }
     };
     f.defer = function (a, b) {
@@ -867,21 +849,21 @@ angular.module('app.letters', []).controller('AController', [
       return c;
     };
     f.defer.cancel = function (a) {
-      return o[a] ? (delete o[a], n(a), e(C), !0) : !1;
+      return o[a] ? (delete o[a], n(a), e(s), !0) : !1;
     };
   }
-  function wc() {
+  function zc() {
     this.$get = [
       '$window',
       '$log',
       '$sniffer',
       '$document',
       function (b, a, c, d) {
-        return new vc(b, d, a, c);
+        return new xc(b, d, a, c);
       }
     ];
   }
-  function xc() {
+  function Ac() {
     this.$get = function () {
       function b(b, d) {
         function e(a) {
@@ -907,12 +889,12 @@ angular.module('app.letters', []).controller('AController', [
         }
         if (b in a)
           throw Error('cacheId ' + b + ' taken');
-        var h = 0, f = v({}, d, { id: b }), i = {}, j = d && d.capacity || Number.MAX_VALUE, k = {}, l = null, n = null;
+        var h = 0, f = D({}, d, { id: b }), i = {}, j = d && d.capacity || Number.MAX_VALUE, k = {}, l = null, n = null;
         return a[b] = {
           put: function (a, b) {
             var c = k[a] || (k[a] = { key: a });
             e(c);
-            w(b) || (a in i || h++, i[a] = b, h > j && this.remove(n.key));
+            u(b) || (a in i || h++, i[a] = b, h > j && this.remove(n.key));
           },
           get: function (a) {
             var b = k[a];
@@ -943,7 +925,7 @@ angular.module('app.letters', []).controller('AController', [
             delete a[b];
           },
           info: function () {
-            return v({}, f, { size: h });
+            return D({}, f, { size: h });
           }
         };
       }
@@ -961,7 +943,7 @@ angular.module('app.letters', []).controller('AController', [
       return b;
     };
   }
-  function yc() {
+  function Bc() {
     this.$get = [
       '$cacheFactory',
       function (b) {
@@ -969,10 +951,10 @@ angular.module('app.letters', []).controller('AController', [
       }
     ];
   }
-  function Db(b) {
+  function Fb(b) {
     var a = {}, c = 'Directive', d = /^\s*directive\:\s*([\d\w\-_]+)\s+(.*)$/, e = /(([\d\w\-_]+)(?:\:([^;]+))?;?)/, g = 'Template must have exactly one root element. was: ', h = /^\s*(https?|ftp|mailto|file):/;
     this.directive = function i(d, e) {
-      B(d) ? ($a(e, 'directive'), a.hasOwnProperty(d) || (a[d] = [], b.factory(d + c, [
+      B(d) ? (bb(e, 'directive'), a.hasOwnProperty(d) || (a[d] = [], b.factory(d + c, [
         '$injector',
         '$exceptionHandler',
         function (b, c) {
@@ -995,11 +977,11 @@ angular.module('app.letters', []).controller('AController', [
           });
           return e;
         }
-      ])), a[d].push(e)) : m(d, nb(i));
+      ])), a[d].push(e)) : m(d, ob(i));
       return this;
     };
     this.urlSanitizationWhitelist = function (a) {
-      return y(a) ? (h = a, this) : h;
+      return v(a) ? (h = a, this) : h;
     };
     this.$get = [
       '$injector',
@@ -1011,85 +993,85 @@ angular.module('app.letters', []).controller('AController', [
       '$controller',
       '$rootScope',
       '$document',
-      function (b, j, k, l, n, o, p, s, t) {
+      function (b, j, k, l, n, o, p, z, r) {
         function x(a, b, c) {
-          a instanceof u || (a = u(a));
+          a instanceof w || (a = w(a));
           m(a, function (b, c) {
-            b.nodeType == 3 && b.nodeValue.match(/\S+/) && (a[c] = u(b).wrap('<span></span>').parent()[0]);
+            b.nodeType == 3 && b.nodeValue.match(/\S+/) && (a[c] = w(b).wrap('<span></span>').parent()[0]);
           });
           var d = A(a, b, a, c);
           return function (b, c) {
-            $a(b, 'scope');
-            for (var e = c ? ua.clone.call(a) : a, j = 0, g = e.length; j < g; j++) {
-              var h = e[j];
-              (h.nodeType == 1 || h.nodeType == 9) && e.eq(j).data('$scope', b);
+            bb(b, 'scope');
+            for (var e = c ? va.clone.call(a) : a, g = 0, j = e.length; g < j; g++) {
+              var h = e[g];
+              (h.nodeType == 1 || h.nodeType == 9) && e.eq(g).data('$scope', b);
             }
-            M(e, 'ng-scope');
+            N(e, 'ng-scope');
             c && c(e, b);
             d && d(b, e, e);
             return e;
           };
         }
-        function M(a, b) {
+        function N(a, b) {
           try {
             a.addClass(b);
           } catch (c) {
           }
         }
         function A(a, b, c, d) {
-          function e(a, c, d, g) {
-            var h, i, k, p, o, l, n, t = [];
+          function e(a, c, d, j) {
+            var h, i, k, p, o, l, n, r = [];
             o = 0;
             for (l = c.length; o < l; o++)
-              t.push(c[o]);
+              r.push(c[o]);
             n = o = 0;
-            for (l = j.length; o < l; n++)
-              i = t[n], c = j[o++], h = j[o++], c ? (c.scope ? (k = a.$new(L(c.scope)), u(i).data('$scope', k)) : k = a, (p = c.transclude) || !g && b ? c(h, k, i, d, function (b) {
+            for (l = g.length; o < l; n++)
+              i = r[n], c = g[o++], h = g[o++], c ? (c.scope ? (k = a.$new(M(c.scope)), w(i).data('$scope', k)) : k = a, (p = c.transclude) || !j && b ? c(h, k, i, d, function (b) {
                 return function (c) {
                   var d = a.$new();
                   d.$$transcluded = !0;
-                  return b(d, c).bind('$destroy', Ta(d, d.$destroy));
+                  return b(d, c).bind('$destroy', Va(d, d.$destroy));
                 };
-              }(p || b)) : c(h, k, i, q, g)) : h && h(a, i.childNodes, q, g);
+              }(p || b)) : c(h, k, i, q, j)) : h && h(a, i.childNodes, q, j);
           }
-          for (var j = [], g, h, i, k = 0; k < a.length; k++)
-            h = new ia(), g = N(a[k], [], h, d), h = (g = g.length ? J(g, a[k], h, b, c) : null) && g.terminal || !a[k].childNodes || !a[k].childNodes.length ? null : A(a[k].childNodes, g ? g.transclude : b), j.push(g), j.push(h), i = i || g || h;
+          for (var g = [], j, h, i, k = 0; k < a.length; k++)
+            h = new ia(), j = J(a[k], [], h, d), h = (j = j.length ? K(j, a[k], h, b, c) : null) && j.terminal || !a[k].childNodes || !a[k].childNodes.length ? null : A(a[k].childNodes, j ? j.transclude : b), g.push(j), g.push(h), i = i || j || h;
           return i ? e : null;
         }
-        function N(a, b, c, g) {
+        function J(a, b, c, g) {
           var j = c.$attr, h;
           switch (a.nodeType) {
           case 1:
-            r(b, ea(fb(a).toLowerCase()), 'E', g);
+            C(b, ca(Ga(a).toLowerCase()), 'E', g);
             var i, k, o;
             h = a.attributes;
             for (var p = 0, l = h && h.length; p < l; p++)
-              if (i = h[p], i.specified)
-                k = i.name, o = ea(k.toLowerCase()), j[o] = k, c[o] = i = Q(Z && k == 'href' ? decodeURIComponent(a.getAttribute(k, 2)) : i.value), Ab(a, o) && (c[o] = !0), V(a, b, i, o), r(b, o, 'A', g);
+              if (i = h[p], !V || V >= 8 || i.specified)
+                k = i.name, o = ca(k.toLowerCase()), j[o] = k, c[o] = i = S(V && k == 'href' ? decodeURIComponent(a.getAttribute(k, 2)) : i.value), Cb(a, o) && (c[o] = !0), R(a, b, i, o), C(b, o, 'A', g);
             a = a.className;
             if (B(a) && a !== '')
               for (; h = e.exec(a);)
-                o = ea(h[2]), r(b, o, 'C', g) && (c[o] = Q(h[3])), a = a.substr(h.index + h[0].length);
+                o = ca(h[2]), C(b, o, 'C', g) && (c[o] = S(h[3])), a = a.substr(h.index + h[0].length);
             break;
           case 3:
-            y(b, a.nodeValue);
+            Y(b, a.nodeValue);
             break;
           case 8:
             try {
               if (h = d.exec(a.nodeValue))
-                o = ea(h[1]), r(b, o, 'M', g) && (c[o] = Q(h[2]));
+                o = ca(h[1]), C(b, o, 'M', g) && (c[o] = S(h[2]));
             } catch (n) {
             }
           }
-          b.sort(F);
+          b.sort(t);
           return b;
         }
-        function J(a, b, c, d, e) {
+        function K(a, b, c, d, e) {
           function j(a, b) {
             if (a)
-              a.require = r.require, n.push(a);
+              a.require = t.require, n.push(a);
             if (b)
-              b.require = r.require, t.push(b);
+              b.require = t.require, r.push(b);
           }
           function h(a, b) {
             var c, d = 'data', e = !1;
@@ -1106,13 +1088,13 @@ angular.module('app.letters', []).controller('AController', [
             return c;
           }
           function i(a, d, e, g, j) {
-            var l, s, r, D, M;
-            l = b === e ? c : hc(c, new ia(u(e), c.$attr));
-            s = l.$$element;
-            if (J) {
-              var zc = /^\s*([@=&])\s*(\w*)\s*$/, x = d.$parent || d;
-              m(J.scope, function (a, b) {
-                var c = a.match(zc) || [], e = c[2] || b, c = c[1], g, j, h;
+            var l, z, t, F, N;
+            l = b === e ? c : jc(c, new ia(w(e), c.$attr));
+            z = l.$$element;
+            if (K) {
+              var Cc = /^\s*([@=&])\s*(\w*)\s*$/, x = d.$parent || d;
+              m(K.scope, function (a, b) {
+                var c = a.match(Cc) || [], e = c[2] || b, c = c[1], g, j, h;
                 d.$$isolateBindings[b] = c + e;
                 switch (c) {
                 case '@':
@@ -1125,7 +1107,7 @@ angular.module('app.letters', []).controller('AController', [
                   j = o(l[e]);
                   h = j.assign || function () {
                     g = d[b] = j(x);
-                    throw Error(Eb + l[e] + ' (directive: ' + J.name + ')');
+                    throw Error(Gb + l[e] + ' (directive: ' + K.name + ')');
                   };
                   g = d[b] = j(x);
                   d.$watch(function () {
@@ -1141,78 +1123,78 @@ angular.module('app.letters', []).controller('AController', [
                   };
                   break;
                 default:
-                  throw Error('Invalid isolate scope definition for directive ' + J.name + ': ' + a);
+                  throw Error('Invalid isolate scope definition for directive ' + K.name + ': ' + a);
                 }
               });
             }
-            y && m(y, function (a) {
+            Y && m(Y, function (a) {
               var b = {
                   $scope: d,
-                  $element: s,
+                  $element: z,
                   $attrs: l,
                   $transclude: j
                 };
-              M = a.controller;
-              M == '@' && (M = l[a.name]);
-              s.data('$' + a.name + 'Controller', p(M, b));
+              N = a.controller;
+              N == '@' && (N = l[a.name]);
+              z.data('$' + a.name + 'Controller', p(N, b));
             });
             g = 0;
-            for (r = n.length; g < r; g++)
+            for (t = n.length; g < t; g++)
               try {
-                D = n[g], D(d, s, l, D.require && h(D.require, s));
+                F = n[g], F(d, z, l, F.require && h(F.require, z));
               } catch (A) {
-                k(A, pa(s));
+                k(A, qa(z));
               }
             a && a(d, e.childNodes, q, j);
             g = 0;
-            for (r = t.length; g < r; g++)
+            for (t = r.length; g < t; g++)
               try {
-                D = t[g], D(d, s, l, D.require && h(D.require, s));
-              } catch (Ac) {
-                k(Ac, pa(s));
+                F = r[g], F(d, z, l, F.require && h(F.require, z));
+              } catch (Dc) {
+                k(Dc, qa(z));
               }
           }
-          for (var l = -Number.MAX_VALUE, n = [], t = [], s = null, J = null, A = null, D = c.$$element = u(b), r, F, W, ja, V = d, y, w, Y, v = 0, z = a.length; v < z; v++) {
-            r = a[v];
-            W = q;
-            if (l > r.priority)
+          for (var l = -Number.MAX_VALUE, n = [], r = [], z = null, K = null, A = null, F = c.$$element = w(b), t, C, R, ja, da = d, Y, s, u, D = 0, y = a.length; D < y; D++) {
+            t = a[D];
+            R = q;
+            if (l > t.priority)
               break;
-            if (Y = r.scope)
-              ta('isolated scope', J, r, D), L(Y) && (M(D, 'ng-isolate-scope'), J = r), M(D, 'ng-scope'), s = s || r;
-            F = r.name;
-            if (Y = r.controller)
-              y = y || {}, ta('\'' + F + '\' controller', y[F], r, D), y[F] = r;
-            if (Y = r.transclude)
-              ta('transclusion', ja, r, D), ja = r, l = r.priority, Y == 'element' ? (W = u(b), D = c.$$element = u(T.createComment(' ' + F + ': ' + c[F] + ' ')), b = D[0], C(e, u(W[0]), b), V = x(W, d, l)) : (W = u(cb(b)).contents(), D.html(''), V = x(W, d));
-            if (Y = r.template)
-              if (ta('template', A, r, D), A = r, Y = Fb(Y), r.replace) {
-                W = u('<div>' + Q(Y) + '</div>').contents();
-                b = W[0];
-                if (W.length != 1 || b.nodeType !== 1)
-                  throw Error(g + Y);
-                C(e, D, b);
-                F = { $attr: {} };
-                a = a.concat(N(b, a.splice(v + 1, a.length - (v + 1)), F));
-                $(c, F);
-                z = a.length;
+            if (u = t.scope)
+              ua('isolated scope', K, t, F), M(u) && (N(F, 'ng-isolate-scope'), K = t), N(F, 'ng-scope'), z = z || t;
+            C = t.name;
+            if (u = t.controller)
+              Y = Y || {}, ua('\'' + C + '\' controller', Y[C], t, F), Y[C] = t;
+            if (u = t.transclude)
+              ua('transclusion', ja, t, F), ja = t, l = t.priority, u == 'element' ? (R = w(b), F = c.$$element = w(T.createComment(' ' + C + ': ' + c[C] + ' ')), b = F[0], v(e, w(R[0]), b), da = x(R, d, l)) : (R = w(fb(b)).contents(), F.html(''), da = x(R, d));
+            if (u = t.template)
+              if (ua('template', A, t, F), A = t, u = Hb(u), t.replace) {
+                R = w('<div>' + S(u) + '</div>').contents();
+                b = R[0];
+                if (R.length != 1 || b.nodeType !== 1)
+                  throw Error(g + u);
+                v(e, F, b);
+                C = { $attr: {} };
+                a = a.concat(J(b, a.splice(D + 1, a.length - (D + 1)), C));
+                ga(c, C);
+                y = a.length;
               } else
-                D.html(Y);
-            if (r.templateUrl)
-              ta('template', A, r, D), A = r, i = R(a.splice(v, a.length - v), i, D, c, e, r.replace, V), z = a.length;
-            else if (r.compile)
+                F.html(u);
+            if (t.templateUrl)
+              ua('template', A, t, F), A = t, i = Q(a.splice(D, a.length - D), i, F, c, e, t.replace, da), y = a.length;
+            else if (t.compile)
               try {
-                w = r.compile(D, c, V), H(w) ? j(null, w) : w && j(w.pre, w.post);
+                s = t.compile(F, c, da), H(s) ? j(null, s) : s && j(s.pre, s.post);
               } catch (G) {
-                k(G, pa(D));
+                k(G, qa(F));
               }
-            if (r.terminal)
-              i.terminal = !0, l = Math.max(l, r.priority);
+            if (t.terminal)
+              i.terminal = !0, l = Math.max(l, t.priority);
           }
-          i.scope = s && s.scope;
-          i.transclude = ja && V;
+          i.scope = z && z.scope;
+          i.transclude = ja && da;
           return i;
         }
-        function r(d, e, g, j) {
+        function C(d, e, g, j) {
           var h = !1;
           if (a.hasOwnProperty(e))
             for (var o, e = b.get(e + c), l = 0, p = e.length; l < p; l++)
@@ -1224,46 +1206,46 @@ angular.module('app.letters', []).controller('AController', [
               }
           return h;
         }
-        function $(a, b) {
+        function ga(a, b) {
           var c = b.$attr, d = a.$attr, e = a.$$element;
           m(a, function (d, e) {
             e.charAt(0) != '$' && (b[e] && (d += (e === 'style' ? ';' : ' ') + b[e]), a.$set(e, d, !0, c[e]));
           });
           m(b, function (b, g) {
-            g == 'class' ? (M(e, b), a['class'] = (a['class'] ? a['class'] + ' ' : '') + b) : g == 'style' ? e.attr('style', e.attr('style') + ';' + b) : g.charAt(0) != '$' && !a.hasOwnProperty(g) && (a[g] = b, d[g] = c[g]);
+            g == 'class' ? (N(e, b), a['class'] = (a['class'] ? a['class'] + ' ' : '') + b) : g == 'style' ? e.attr('style', e.attr('style') + ';' + b) : g.charAt(0) != '$' && !a.hasOwnProperty(g) && (a[g] = b, d[g] = c[g]);
           });
         }
-        function R(a, b, c, d, e, j, h) {
-          var i = [], k, o, p = c[0], t = a.shift(), s = v({}, t, {
+        function Q(a, b, c, d, e, j, h) {
+          var i = [], k, o, p = c[0], r = a.shift(), z = D({}, r, {
               controller: null,
               templateUrl: null,
               transclude: null,
               scope: null
             });
           c.html('');
-          l.get(t.templateUrl, { cache: n }).success(function (l) {
-            var n, t, l = Fb(l);
+          l.get(r.templateUrl, { cache: n }).success(function (l) {
+            var n, r, l = Hb(l);
             if (j) {
-              t = u('<div>' + Q(l) + '</div>').contents();
-              n = t[0];
-              if (t.length != 1 || n.nodeType !== 1)
+              r = w('<div>' + S(l) + '</div>').contents();
+              n = r[0];
+              if (r.length != 1 || n.nodeType !== 1)
                 throw Error(g + l);
               l = { $attr: {} };
-              C(e, c, n);
-              N(n, a, l);
-              $(d, l);
+              v(e, c, n);
+              J(n, a, l);
+              ga(d, l);
             } else
               n = p, c.html(l);
-            a.unshift(s);
-            k = J(a, n, d, h);
+            a.unshift(z);
+            k = K(a, n, d, h);
             for (o = A(c[0].childNodes, h); i.length;) {
-              var r = i.pop(), l = i.pop();
-              t = i.pop();
-              var ia = i.pop(), D = n;
-              t !== p && (D = cb(n), C(l, u(t), D));
+              var ia = i.pop(), l = i.pop();
+              r = i.pop();
+              var F = i.pop(), t = n;
+              r !== p && (t = fb(n), v(l, w(r), t));
               k(function () {
-                b(o, ia, D, e, r);
-              }, ia, D, e, r);
+                b(o, F, t, e, ia);
+              }, F, t, e, ia);
             }
             i = null;
           }).error(function (a, b, c, d) {
@@ -1275,28 +1257,28 @@ angular.module('app.letters', []).controller('AController', [
             }, c, d, e, g);
           };
         }
-        function F(a, b) {
+        function t(a, b) {
           return b.priority - a.priority;
         }
-        function ta(a, b, c, d) {
+        function ua(a, b, c, d) {
           if (b)
-            throw Error('Multiple directives [' + b.name + ', ' + c.name + '] asking for ' + a + ' on: ' + pa(d));
+            throw Error('Multiple directives [' + b.name + ', ' + c.name + '] asking for ' + a + ' on: ' + qa(d));
         }
-        function y(a, b) {
+        function Y(a, b) {
           var c = j(b, !0);
           c && a.push({
             priority: 0,
             compile: I(function (a, b) {
               var d = b.parent(), e = d.data('$binding') || [];
               e.push(c);
-              M(d.data('$binding', e), 'ng-binding');
+              N(d.data('$binding', e), 'ng-binding');
               a.$watch(c, function (a) {
                 b[0].nodeValue = a;
               });
             })
           });
         }
-        function V(a, b, c, d) {
+        function R(a, b, c, d) {
           var e = j(c, !0);
           e && b.push({
             priority: 100,
@@ -1311,7 +1293,7 @@ angular.module('app.letters', []).controller('AController', [
             })
           });
         }
-        function C(a, b, c) {
+        function v(a, b, c) {
           var d = b[0], e = d.parentNode, g, j;
           if (a) {
             g = 0;
@@ -1322,7 +1304,7 @@ angular.module('app.letters', []).controller('AController', [
               }
           }
           e && e.replaceChild(c, d);
-          c[u.expando] = d[u.expando];
+          c[w.expando] = d[w.expando];
           b[0] = c;
         }
         var ia = function (a, b) {
@@ -1330,14 +1312,14 @@ angular.module('app.letters', []).controller('AController', [
           this.$attr = b || {};
         };
         ia.prototype = {
-          $normalize: ea,
+          $normalize: ca,
           $set: function (a, b, c, d) {
-            var e = Ab(this.$$element[0], a), g = this.$$observers;
+            var e = Cb(this.$$element[0], a), g = this.$$observers;
             e && (this.$$element.prop(a, b), d = e);
             this[a] = b;
-            d ? this.$attr[a] = d : (d = this.$attr[a]) || (this.$attr[a] = d = Za(a, '-'));
-            if (fb(this.$$element[0]) === 'A' && a === 'href')
-              D.setAttribute('href', b), e = D.href, e.match(h) || (this[a] = b = 'unsafe:' + e);
+            d ? this.$attr[a] = d : (d = this.$attr[a]) || (this.$attr[a] = d = ab(a, '-'));
+            if (Ga(this.$$element[0]) === 'A' && a === 'href')
+              F.setAttribute('href', b), e = F.href, e !== '' && !e.match(h) && (this[a] = b = 'unsafe:' + e);
             c !== !1 && (b === null || b === q ? this.$$element.removeAttr(d) : this.$$element.attr(d, b));
             g && m(g[a], function (a) {
               try {
@@ -1350,26 +1332,26 @@ angular.module('app.letters', []).controller('AController', [
           $observe: function (a, b) {
             var c = this, d = c.$$observers || (c.$$observers = {}), e = d[a] || (d[a] = []);
             e.push(b);
-            s.$evalAsync(function () {
+            z.$evalAsync(function () {
               e.$$inter || b(c[a]);
             });
             return b;
           }
         };
-        var D = t[0].createElement('a'), W = j.startSymbol(), ja = j.endSymbol(), Fb = W == '{{' || ja == '}}' ? ma : function (a) {
-            return a.replace(/\{\{/g, W).replace(/}}/g, ja);
+        var F = r[0].createElement('a'), ja = j.startSymbol(), da = j.endSymbol(), Hb = ja == '{{' || da == '}}' ? na : function (a) {
+            return a.replace(/\{\{/g, ja).replace(/}}/g, da);
           };
         return x;
       }
     ];
   }
-  function ea(b) {
-    return tb(b.replace(Bc, ''));
+  function ca(b) {
+    return vb(b.replace(Ec, ''));
   }
-  function Cc() {
+  function Fc() {
     var b = {};
     this.register = function (a, c) {
-      L(a) ? v(b, a) : b[a] = c;
+      M(a) ? D(b, a) : b[a] = c;
     };
     this.$get = [
       '$injector',
@@ -1377,23 +1359,23 @@ angular.module('app.letters', []).controller('AController', [
       function (a, c) {
         return function (d, e) {
           if (B(d)) {
-            var g = d, d = b.hasOwnProperty(g) ? b[g] : gb(e.$scope, g, !0) || gb(c, g, !0);
-            qa(d, g, !0);
+            var g = d, d = b.hasOwnProperty(g) ? b[g] : cb(e.$scope, g, !0) || cb(c, g, !0);
+            ra(d, g, !0);
           }
           return a.instantiate(d, e);
         };
       }
     ];
   }
-  function Dc() {
+  function Gc() {
     this.$get = [
       '$window',
       function (b) {
-        return u(b.document);
+        return w(b.document);
       }
     ];
   }
-  function Ec() {
+  function Hc() {
     this.$get = [
       '$log',
       function (b) {
@@ -1403,7 +1385,7 @@ angular.module('app.letters', []).controller('AController', [
       }
     ];
   }
-  function Fc() {
+  function Ic() {
     var b = '{{', a = '}}';
     this.startSymbol = function (a) {
       return a ? (b = a, this) : b;
@@ -1423,7 +1405,7 @@ angular.module('app.letters', []).controller('AController', [
             return p.length = n, k = function (a) {
               for (var b = 0, c = n, d; b < c; b++) {
                 if (typeof (d = l[b]) == 'function')
-                  d = d(a), d == null || d == q ? d = '' : typeof d != 'string' && (d = da(d));
+                  d = d(a), d == null || d == q ? d = '' : typeof d != 'string' && (d = ba(d));
                 p[b] = d;
               }
               return p.join('');
@@ -1440,16 +1422,16 @@ angular.module('app.letters', []).controller('AController', [
       }
     ];
   }
-  function Gb(b) {
+  function Ib(b) {
     for (var b = b.split('/'), a = b.length; a--;)
-      b[a] = Xa(b[a]);
+      b[a] = Za(b[a]);
     return b.join('/');
   }
-  function va(b, a) {
-    var c = Hb.exec(b), c = {
+  function wa(b, a) {
+    var c = Jb.exec(b), c = {
         protocol: c[1],
         host: c[3],
-        port: G(c[5]) || Ib[c[1]] || null,
+        port: G(c[5]) || Kb[c[1]] || null,
         path: c[6] || '/',
         search: c[8],
         hash: c[10]
@@ -1459,15 +1441,15 @@ angular.module('app.letters', []).controller('AController', [
     return c;
   }
   function ka(b, a, c) {
-    return b + '://' + a + (c == Ib[b] ? '' : ':' + c);
+    return b + '://' + a + (c == Kb[b] ? '' : ':' + c);
   }
-  function Gc(b, a, c) {
-    var d = va(b);
-    return decodeURIComponent(d.path) != a || w(d.hash) || d.hash.indexOf(c) !== 0 ? b : ka(d.protocol, d.host, d.port) + a.substr(0, a.lastIndexOf('/')) + d.hash.substr(c.length);
+  function Jc(b, a, c) {
+    var d = wa(b);
+    return decodeURIComponent(d.path) != a || u(d.hash) || d.hash.indexOf(c) !== 0 ? b : ka(d.protocol, d.host, d.port) + a.substr(0, a.lastIndexOf('/')) + d.hash.substr(c.length);
   }
-  function Hc(b, a, c) {
-    var d = va(b);
-    if (decodeURIComponent(d.path) == a && !w(d.hash) && d.hash.indexOf(c) === 0)
+  function Kc(b, a, c) {
+    var d = wa(b);
+    if (decodeURIComponent(d.path) == a && !u(d.hash) && d.hash.indexOf(c) === 0)
       return b;
     else {
       var e = d.search && '?' + d.search || '', g = d.hash && '#' + d.hash || '', h = a.substr(0, a.lastIndexOf('/')), f = d.path.substr(h.length);
@@ -1476,20 +1458,20 @@ angular.module('app.letters', []).controller('AController', [
       return ka(d.protocol, d.host, d.port) + a + '#' + c + f + e + g;
     }
   }
-  function hb(b, a, c) {
+  function ib(b, a, c) {
     a = a || '';
     this.$$parse = function (b) {
-      var c = va(b, this);
+      var c = wa(b, this);
       if (c.path.indexOf(a) !== 0)
         throw Error('Invalid url "' + b + '", missing path prefix "' + a + '" !');
       this.$$path = decodeURIComponent(c.path.substr(a.length));
-      this.$$search = Va(c.search);
+      this.$$search = Xa(c.search);
       this.$$hash = c.hash && decodeURIComponent(c.hash) || '';
       this.$$compose();
     };
     this.$$compose = function () {
-      var b = qb(this.$$search), c = this.$$hash ? '#' + Xa(this.$$hash) : '';
-      this.$$url = Gb(this.$$path) + (b ? '?' + b : '') + c;
+      var b = sb(this.$$search), c = this.$$hash ? '#' + Za(this.$$hash) : '';
+      this.$$url = Ib(this.$$path) + (b ? '?' + b : '') + c;
       this.$$absUrl = ka(this.$$protocol, this.$$host, this.$$port) + a + this.$$url;
     };
     this.$$rewriteAppUrl = function (a) {
@@ -1498,22 +1480,22 @@ angular.module('app.letters', []).controller('AController', [
     };
     this.$$parse(b);
   }
-  function Ga(b, a, c) {
+  function Ha(b, a, c) {
     var d;
     this.$$parse = function (b) {
-      var c = va(b, this);
+      var c = wa(b, this);
       if (c.hash && c.hash.indexOf(a) !== 0)
         throw Error('Invalid url "' + b + '", missing hash prefix "' + a + '" !');
       d = c.path + (c.search ? '?' + c.search : '');
-      c = Ic.exec((c.hash || '').substr(a.length));
+      c = Lc.exec((c.hash || '').substr(a.length));
       this.$$path = c[1] ? (c[1].charAt(0) == '/' ? '' : '/') + decodeURIComponent(c[1]) : '';
-      this.$$search = Va(c[3]);
+      this.$$search = Xa(c[3]);
       this.$$hash = c[5] && decodeURIComponent(c[5]) || '';
       this.$$compose();
     };
     this.$$compose = function () {
-      var b = qb(this.$$search), c = this.$$hash ? '#' + Xa(this.$$hash) : '';
-      this.$$url = Gb(this.$$path) + (b ? '?' + b : '') + c;
+      var b = sb(this.$$search), c = this.$$hash ? '#' + Za(this.$$hash) : '';
+      this.$$url = Ib(this.$$path) + (b ? '?' + b : '') + c;
       this.$$absUrl = ka(this.$$protocol, this.$$host, this.$$port) + d + (this.$$url ? '#' + a + this.$$url : '');
     };
     this.$$rewriteAppUrl = function (a) {
@@ -1522,34 +1504,34 @@ angular.module('app.letters', []).controller('AController', [
     };
     this.$$parse(b);
   }
-  function Jb(b, a, c, d) {
-    Ga.apply(this, arguments);
+  function Lb(b, a, c, d) {
+    Ha.apply(this, arguments);
     this.$$rewriteAppUrl = function (b) {
       if (b.indexOf(c) == 0)
         return c + d + '#' + a + b.substr(c.length);
     };
   }
-  function Ha(b) {
+  function Ia(b) {
     return function () {
       return this[b];
     };
   }
-  function Kb(b, a) {
+  function Mb(b, a) {
     return function (c) {
-      if (w(c))
+      if (u(c))
         return this[b];
       this[b] = a(c);
       this.$$compose();
       return this;
     };
   }
-  function Jc() {
+  function Mc() {
     var b = '', a = !1;
     this.hashPrefix = function (a) {
-      return y(a) ? (b = a, this) : b;
+      return v(a) ? (b = a, this) : b;
     };
     this.html5Mode = function (b) {
-      return y(b) ? (a = b, this) : a;
+      return v(b) ? (a = b, this) : a;
     };
     this.$get = [
       '$rootScope',
@@ -1560,11 +1542,11 @@ angular.module('app.letters', []).controller('AController', [
         function h(a) {
           c.$broadcast('$locationChangeSuccess', f.absUrl(), a);
         }
-        var f, i, j, k = d.url(), l = va(k);
-        a ? (i = d.baseHref() || '/', j = i.substr(0, i.lastIndexOf('/')), l = ka(l.protocol, l.host, l.port) + j + '/', f = e.history ? new hb(Gc(k, i, b), j, l) : new Jb(Hc(k, i, b), b, l, i.substr(j.length + 1))) : (l = ka(l.protocol, l.host, l.port) + (l.path || '') + (l.search ? '?' + l.search : '') + '#' + b + '/', f = new Ga(k, b, l));
+        var f, i, j, k = d.url(), l = wa(k);
+        a ? (i = d.baseHref() || '/', j = i.substr(0, i.lastIndexOf('/')), l = ka(l.protocol, l.host, l.port) + j + '/', f = e.history ? new ib(Jc(k, i, b), j, l) : new Lb(Kc(k, i, b), b, l, i.substr(j.length + 1))) : (l = ka(l.protocol, l.host, l.port) + (l.path || '') + (l.search ? '?' + l.search : '') + '#' + b + '/', f = new Ha(k, b, l));
         g.bind('click', function (a) {
           if (!a.ctrlKey && !(a.metaKey || a.which == 2)) {
-            for (var b = u(a.target); z(b[0].nodeName) !== 'a';)
+            for (var b = w(a.target); y(b[0].nodeName) !== 'a';)
               if (b[0] === g[0] || !(b = b.parent())[0])
                 return;
             var d = b.prop('href'), e = f.$$rewriteAppUrl(d);
@@ -1593,7 +1575,7 @@ angular.module('app.letters', []).controller('AController', [
       }
     ];
   }
-  function Kc() {
+  function Nc() {
     this.$get = [
       '$window',
       function (b) {
@@ -1602,7 +1584,7 @@ angular.module('app.letters', []).controller('AController', [
           return a;
         }
         function c(c) {
-          var e = b.console || {}, g = e[c] || e.log || C;
+          var e = b.console || {}, g = e[c] || e.log || s;
           return g.apply ? function () {
             var b = [];
             m(arguments, function (c) {
@@ -1622,9 +1604,9 @@ angular.module('app.letters', []).controller('AController', [
       }
     ];
   }
-  function Lc(b, a) {
+  function Oc(b, a) {
     function c(a) {
-      return a.indexOf(t) != -1;
+      return a.indexOf(r) != -1;
     }
     function d() {
       return p + 1 < b.length ? b.charAt(p + 1) : !1;
@@ -1643,11 +1625,11 @@ angular.module('app.letters', []).controller('AController', [
     }
     function i(a, c, d) {
       d = d || p;
-      throw Error('Lexer Error: ' + a + ' at column' + (y(c) ? 's ' + c + '-' + p + ' [' + b.substring(c, d) + ']' : ' ' + d) + ' in expression [' + b + '].');
+      throw Error('Lexer Error: ' + a + ' at column' + (v(c) ? 's ' + c + '-' + p + ' [' + b.substring(c, d) + ']' : ' ' + d) + ' in expression [' + b + '].');
     }
     function j() {
       for (var a = '', c = p; p < b.length;) {
-        var g = z(b.charAt(p));
+        var g = y(b.charAt(p));
         if (g == '.' || e(g))
           a += g;
         else {
@@ -1700,15 +1682,15 @@ angular.module('app.letters', []).controller('AController', [
         index: d,
         text: c
       };
-      if (Ia.hasOwnProperty(c))
-        d.fn = d.json = Ia[c];
+      if (Ja.hasOwnProperty(c))
+        d.fn = d.json = Ja[c];
       else {
-        var l = Lb(c, a);
-        d.fn = v(function (a, b) {
+        var l = Nb(c, a);
+        d.fn = D(function (a, b) {
           return l(a, b);
         }, {
           assign: function (a, b) {
-            return Mb(a, c, b);
+            return Ob(a, c, b);
           }
         });
       }
@@ -1730,7 +1712,7 @@ angular.module('app.letters', []).controller('AController', [
         var g = b.charAt(p);
         e += g;
         if (f)
-          g == 'u' ? (g = b.substring(p + 1, p + 5), g.match(/[\da-f]{4}/i) || i('Invalid unicode escape [\\u' + g + ']'), p += 4, d += String.fromCharCode(parseInt(g, 16))) : (f = Mc[g], d += f ? f : g), f = !1;
+          g == 'u' ? (g = b.substring(p + 1, p + 5), g.match(/[\da-f]{4}/i) || i('Invalid unicode escape [\\u' + g + ']'), p += 4, d += String.fromCharCode(parseInt(g, 16))) : (f = Pc[g], d += f ? f : g), f = !1;
         else if (g == '\\')
           f = !0;
         else if (g == a) {
@@ -1751,60 +1733,60 @@ angular.module('app.letters', []).controller('AController', [
       }
       i('Unterminated quote', c);
     }
-    for (var n = [], o, p = 0, s = [], t, x = ':'; p < b.length;) {
-      t = b.charAt(p);
+    for (var n = [], o, p = 0, z = [], r, x = ':'; p < b.length;) {
+      r = b.charAt(p);
       if (c('"\''))
-        l(t);
-      else if (e(t) || c('.') && e(d()))
+        l(r);
+      else if (e(r) || c('.') && e(d()))
         j();
-      else if (h(t)) {
-        if (k(), '{,'.indexOf(x) != -1 && s[0] == '{' && (o = n[n.length - 1]))
+      else if (h(r)) {
+        if (k(), '{,'.indexOf(x) != -1 && z[0] == '{' && (o = n[n.length - 1]))
           o.json = o.text.indexOf('.') == -1;
       } else if (c('(){}[].,;:'))
         n.push({
           index: p,
-          text: t,
+          text: r,
           json: ':[,'.indexOf(x) != -1 && c('{[') || c('}]:,')
-        }), c('{[') && s.unshift(t), c('}]') && s.shift(), p++;
-      else if (g(t)) {
+        }), c('{[') && z.unshift(r), c('}]') && z.shift(), p++;
+      else if (g(r)) {
         p++;
         continue;
       } else {
-        var m = t + d(), A = Ia[t], N = Ia[m];
-        N ? (n.push({
+        var m = r + d(), A = Ja[r], J = Ja[m];
+        J ? (n.push({
           index: p,
           text: m,
-          fn: N
+          fn: J
         }), p += 2) : A ? (n.push({
           index: p,
-          text: t,
+          text: r,
           fn: A,
           json: '[,:'.indexOf(x) != -1 && c('+-')
         }), p += 1) : i('Unexpected next character ', p, p + 1);
       }
-      x = t;
+      x = r;
     }
     return n;
   }
-  function Nc(b, a, c, d) {
+  function Qc(b, a, c, d) {
     function e(a, c) {
       throw Error('Syntax Error: Token \'' + c.text + '\' ' + a + ' at column ' + (c.index + 1) + ' of the expression [' + b + '] starting at [' + b.substring(c.index) + '].');
     }
     function g() {
-      if (R.length === 0)
+      if (Q.length === 0)
         throw Error('Unexpected end of expression: ' + b);
-      return R[0];
+      return Q[0];
     }
     function h(a, b, c, d) {
-      if (R.length > 0) {
-        var e = R[0], f = e.text;
+      if (Q.length > 0) {
+        var e = Q[0], f = e.text;
         if (f == a || f == b || f == c || f == d || !a && !b && !c && !d)
           return e;
       }
       return !1;
     }
     function f(b, c, d, f) {
-      return (b = h(b, c, d, f)) ? (a && !b.json && e('is not valid json', b), R.shift(), b) : !1;
+      return (b = h(b, c, d, f)) ? (a && !b.json && e('is not valid json', b), Q.shift(), b) : !1;
     }
     function i(a) {
       f(a) || e('is unexpected, expecting [' + a + ']', h());
@@ -1821,7 +1803,7 @@ angular.module('app.letters', []).controller('AController', [
     }
     function l() {
       for (var a = [];;)
-        if (R.length > 0 && !h('}', ')', ';', ']') && a.push(w()), !f(';'))
+        if (Q.length > 0 && !h('}', ')', ';', ']') && a.push(v()), !f(';'))
           return a.length == 1 ? a[0] : function (b, c) {
             for (var d, e = 0; e < a.length; e++) {
               var f = a[e];
@@ -1833,7 +1815,7 @@ angular.module('app.letters', []).controller('AController', [
     function n() {
       for (var a = f(), b = c(a.text), d = [];;)
         if (a = f(':'))
-          d.push(F());
+          d.push(t());
         else {
           var e = function (a, c, e) {
             for (var e = [e], f = 0; f < d.length; f++)
@@ -1853,24 +1835,24 @@ angular.module('app.letters', []).controller('AController', [
           return a;
     }
     function p() {
-      var a = s(), b;
+      var a = z(), b;
       if (b = f('&&'))
         a = k(a, b.fn, p());
       return a;
     }
-    function s() {
-      var a = t(), b;
+    function z() {
+      var a = r(), b;
       if (b = f('==', '!='))
-        a = k(a, b.fn, s());
+        a = k(a, b.fn, z());
       return a;
     }
-    function t() {
+    function r() {
       var a;
       a = x();
       for (var b; b = f('+', '-');)
         a = k(a, b.fn, x());
       if (b = f('<', '>', '<=', '>='))
-        a = k(a, b.fn, t());
+        a = k(a, b.fn, r());
       return a;
     }
     function x() {
@@ -1880,29 +1862,29 @@ angular.module('app.letters', []).controller('AController', [
     }
     function m() {
       var a;
-      return f('+') ? A() : (a = f('-')) ? k(r, a.fn, m()) : (a = f('!')) ? j(a.fn, m()) : A();
+      return f('+') ? A() : (a = f('-')) ? k(C, a.fn, m()) : (a = f('!')) ? j(a.fn, m()) : A();
     }
     function A() {
       var a;
       if (f('('))
-        a = w(), i(')');
+        a = v(), i(')');
       else if (f('['))
-        a = N();
-      else if (f('{'))
         a = J();
+      else if (f('{'))
+        a = K();
       else {
         var b = f();
         (a = b.fn) || e('not a primary expression', b);
       }
       for (var c; b = f('(', '[', '.');)
-        b.text === '(' ? (a = y(a, c), c = null) : b.text === '[' ? (c = a, a = V(a)) : b.text === '.' ? (c = a, a = u(a)) : e('IMPOSSIBLE');
+        b.text === '(' ? (a = w(a, c), c = null) : b.text === '[' ? (c = a, a = R(a)) : b.text === '.' ? (c = a, a = Y(a)) : e('IMPOSSIBLE');
       return a;
     }
-    function N() {
+    function J() {
       var a = [];
       if (g().text != ']') {
         do
-          a.push(F());
+          a.push(t());
         while (f(','));
       }
       i(']');
@@ -1912,13 +1894,13 @@ angular.module('app.letters', []).controller('AController', [
         return d;
       };
     }
-    function J() {
+    function K() {
       var a = [];
       if (g().text != '}') {
         do {
           var b = f(), b = b.string || b.text;
           i(':');
-          var c = F();
+          var c = t();
           a.push({
             key: b,
             value: c
@@ -1934,38 +1916,38 @@ angular.module('app.letters', []).controller('AController', [
         return d;
       };
     }
-    var r = I(0), $, R = Lc(b, d), F = function () {
+    var C = I(0), u, Q = Oc(b, d), t = function () {
         var a = o(), c, d;
         return (d = f('=')) ? (a.assign || e('implies assignment but [' + b.substring(0, d.index) + '] can not be assigned to', d), c = o(), function (b, d) {
           return a.assign(b, c(b, d), d);
         }) : a;
-      }, y = function (a, b) {
+      }, w = function (a, b) {
         var c = [];
         if (g().text != ')') {
           do
-            c.push(F());
+            c.push(t());
           while (f(','));
         }
         i(')');
         return function (d, e) {
           for (var f = [], g = b ? b(d, e) : d, j = 0; j < c.length; j++)
             f.push(c[j](d, e));
-          j = a(d, e, g) || C;
+          j = a(d, e, g) || s;
           return j.apply ? j.apply(g, f) : j(f[0], f[1], f[2], f[3], f[4]);
         };
-      }, u = function (a) {
-        var b = f().text, c = Lb(b, d);
-        return v(function (b, d, e) {
+      }, Y = function (a) {
+        var b = f().text, c = Nb(b, d);
+        return D(function (b, d, e) {
           return c(e || a(b, d), d);
         }, {
           assign: function (c, d, e) {
-            return Mb(a(c, e), b, d);
+            return Ob(a(c, e), b, d);
           }
         });
-      }, V = function (a) {
-        var b = F();
+      }, R = function (a) {
+        var b = t();
         i(']');
-        return v(function (c, d) {
+        return D(function (c, d) {
           var e = a(c, d), f = b(c, d), g;
           if (!e)
             return q;
@@ -1983,23 +1965,23 @@ angular.module('app.letters', []).controller('AController', [
             return a(c, e)[b(c, e)] = d;
           }
         });
-      }, w = function () {
-        for (var a = F(), b;;)
+      }, v = function () {
+        for (var a = t(), b;;)
           if (b = f('|'))
             a = k(a, b.fn, n());
           else
             return a;
       };
-    a ? (F = o, y = u = V = w = function () {
+    a ? (t = o, w = Y = R = v = function () {
       e('is not valid json', {
         text: b,
         index: 0
       });
-    }, $ = A()) : $ = l();
-    R.length !== 0 && e('is an unexpected token', R[0]);
-    return $;
+    }, u = A()) : u = l();
+    Q.length !== 0 && e('is an unexpected token', Q[0]);
+    return u;
   }
-  function Mb(b, a, c) {
+  function Ob(b, a, c) {
     for (var a = a.split('.'), d = 0; a.length > 1; d++) {
       var e = a.shift(), g = b[e];
       g || (g = {}, b[e] = g);
@@ -2007,14 +1989,7 @@ angular.module('app.letters', []).controller('AController', [
     }
     return b[a.shift()] = c;
   }
-  function gb(b, a, c) {
-    if (!a)
-      return b;
-    for (var a = a.split('.'), d, e = b, g = a.length, h = 0; h < g; h++)
-      d = a[h], b && (b = (e = b)[d]);
-    return !c && H(b) ? Ta(e, b) : b;
-  }
-  function Nb(b, a, c, d, e) {
+  function Pb(b, a, c, d, e) {
     return function (g, h) {
       var f = h && h.hasOwnProperty(b) ? h : g, i;
       if (f === null || f === q)
@@ -2065,15 +2040,15 @@ angular.module('app.letters', []).controller('AController', [
       return f;
     };
   }
-  function Lb(b, a) {
-    if (ib.hasOwnProperty(b))
-      return ib[b];
+  function Nb(b, a) {
+    if (jb.hasOwnProperty(b))
+      return jb[b];
     var c = b.split('.'), d = c.length, e;
     if (a)
-      e = d < 6 ? Nb(c[0], c[1], c[2], c[3], c[4]) : function (a, b) {
+      e = d < 6 ? Pb(c[0], c[1], c[2], c[3], c[4]) : function (a, b) {
         var e = 0, g;
         do
-          g = Nb(c[e++], c[e++], c[e++], c[e++], c[e++])(a, b), b = q, a = g;
+          g = Pb(c[e++], c[e++], c[e++], c[e++], c[e++])(a, b), b = q, a = g;
         while (e < d);
         return g;
       };
@@ -2088,9 +2063,9 @@ angular.module('app.letters', []).controller('AController', [
         return g;
       };
     }
-    return ib[b] = e;
+    return jb[b] = e;
   }
-  function Oc() {
+  function Rc() {
     var b = {};
     this.$get = [
       '$filter',
@@ -2099,28 +2074,28 @@ angular.module('app.letters', []).controller('AController', [
         return function (d) {
           switch (typeof d) {
           case 'string':
-            return b.hasOwnProperty(d) ? b[d] : b[d] = Nc(d, !1, a, c.csp);
+            return b.hasOwnProperty(d) ? b[d] : b[d] = Qc(d, !1, a, c.csp);
           case 'function':
             return d;
           default:
-            return C;
+            return s;
           }
         };
       }
     ];
   }
-  function Pc() {
+  function Sc() {
     this.$get = [
       '$rootScope',
       '$exceptionHandler',
       function (b, a) {
-        return Qc(function (a) {
+        return Tc(function (a) {
           b.$evalAsync(a);
         }, a);
       }
     ];
   }
-  function Qc(b, a) {
+  function Tc(b, a) {
     function c(a) {
       return a;
     }
@@ -2150,13 +2125,13 @@ angular.module('app.letters', []).controller('AController', [
                   try {
                     j.resolve((b || c)(d));
                   } catch (e) {
-                    a(e), j.reject(e);
+                    j.reject(e), a(e);
                   }
                 }, p = function (b) {
                   try {
                     j.resolve((g || d)(b));
                   } catch (c) {
-                    a(c), j.reject(c);
+                    j.reject(c), a(c);
                   }
                 };
               f ? f.push([
@@ -2227,10 +2202,10 @@ angular.module('app.letters', []).controller('AController', [
       }
     };
   }
-  function Rc() {
+  function Uc() {
     var b = {};
     this.when = function (a, c) {
-      b[a] = v({ reloadOnSearch: !0 }, c);
+      b[a] = D({ reloadOnSearch: !0 }, c);
       if (a) {
         var d = a[a.length - 1] == '/' ? a.substr(0, a.length - 1) : a + '/';
         b[d] = { redirectTo: a };
@@ -2262,7 +2237,7 @@ angular.module('app.letters', []).controller('AController', [
         }
         function j() {
           var b = k(), j = o.current;
-          if (b && j && b.$$route === j.$$route && fa(b.pathParams, j.pathParams) && !b.reloadOnSearch && !n)
+          if (b && j && b.$$route === j.$$route && ea(b.pathParams, j.pathParams) && !b.reloadOnSearch && !n)
             j.params = b.params, U(j.params, d), a.$broadcast('$routeUpdate', j);
           else if (b || j)
             n = !1, a.$broadcast('$routeChangeStart', b, j), (o.current = b) && b.redirectTo && (B(b.redirectTo) ? c.path(l(b.redirectTo, b.params)).search(b.params).replace() : c.url(b.redirectTo(b.pathParams, c.path(), c.search())).replace()), e.when(b).then(function () {
@@ -2272,12 +2247,12 @@ angular.module('app.letters', []).controller('AController', [
                   a.push(d);
                   c.push(B(b) ? g.get(b) : g.invoke(b));
                 });
-                if (!y(d = b.template))
-                  if (y(d = b.templateUrl))
+                if (!v(d = b.template))
+                  if (v(d = b.templateUrl))
                     d = h.get(d, { cache: f }).then(function (a) {
                       return a.data;
                     });
-                y(d) && (a.push('$template'), c.push(d));
+                v(d) && (a.push('$template'), c.push(d));
                 return e.all(c).then(function (b) {
                   var c = {};
                   m(b, function (b, d) {
@@ -2301,7 +2276,7 @@ angular.module('app.letters', []).controller('AController', [
           m(b, function (b, e) {
             if (!d && (a = i(c.path(), e)))
               d = ya(b, {
-                params: v({}, c.search(), a),
+                params: D({}, c.search(), a),
                 pathParams: a
               }), d.$$route = b;
           });
@@ -2336,10 +2311,10 @@ angular.module('app.letters', []).controller('AController', [
       }
     ];
   }
-  function Sc() {
+  function Vc() {
     this.$get = I({});
   }
-  function Tc() {
+  function Wc() {
     var b = 10;
     this.digestTtl = function (a) {
       arguments.length && (b = a);
@@ -2366,7 +2341,7 @@ angular.module('app.letters', []).controller('AController', [
         }
         function h(a, b) {
           var c = d(a);
-          qa(c, b);
+          ra(c, b);
           return c;
         }
         function f() {
@@ -2395,7 +2370,7 @@ angular.module('app.letters', []).controller('AController', [
                 eq: !!c
               };
             if (!H(b)) {
-              var i = h(b || C, 'listener');
+              var i = h(b || s, 'listener');
               g.fn = function (a, b, c) {
                 i(c);
               };
@@ -2404,11 +2379,11 @@ angular.module('app.letters', []).controller('AController', [
               e = this.$$watchers = [];
             e.unshift(g);
             return function () {
-              Sa(e, g);
+              Ua(e, g);
             };
           },
           $digest: function () {
-            var a, d, e, h, o, p, m, t = b, x, q = [], A, N;
+            var a, d, e, h, o, p, m, r = b, x, q = [], A, J;
             g('$digest');
             do {
               m = !1;
@@ -2417,23 +2392,23 @@ angular.module('app.letters', []).controller('AController', [
                 for (o = x.$$asyncQueue; o.length;)
                   try {
                     x.$eval(o.shift());
-                  } catch (J) {
-                    c(J);
+                  } catch (K) {
+                    c(K);
                   }
                 if (h = x.$$watchers)
                   for (p = h.length; p--;)
                     try {
-                      if (a = h[p], (d = a.get(x)) !== (e = a.last) && !(a.eq ? fa(d, e) : typeof d == 'number' && typeof e == 'number' && isNaN(d) && isNaN(e)))
-                        m = !0, a.last = a.eq ? U(d) : d, a.fn(d, e === f ? d : e, x), t < 5 && (A = 4 - t, q[A] || (q[A] = []), N = H(a.exp) ? 'fn: ' + (a.exp.name || a.exp.toString()) : a.exp, N += '; newVal: ' + da(d) + '; oldVal: ' + da(e), q[A].push(N));
-                    } catch (r) {
-                      c(r);
+                      if ((a = h[p]) && (d = a.get(x)) !== (e = a.last) && !(a.eq ? ea(d, e) : typeof d == 'number' && typeof e == 'number' && isNaN(d) && isNaN(e)))
+                        m = !0, a.last = a.eq ? U(d) : d, a.fn(d, e === f ? d : e, x), r < 5 && (A = 4 - r, q[A] || (q[A] = []), J = H(a.exp) ? 'fn: ' + (a.exp.name || a.exp.toString()) : a.exp, J += '; newVal: ' + ba(d) + '; oldVal: ' + ba(e), q[A].push(J));
+                    } catch (C) {
+                      c(C);
                     }
                 if (!(h = x.$$childHead || x !== this && x.$$nextSibling))
                   for (; x !== this && !(h = x.$$nextSibling);)
                     x = x.$parent;
               } while (x = h);
-              if (m && !t--)
-                throw i.$$phase = null, Error(b + ' $digest() iterations reached. Aborting!\nWatchers fired in the last 5 iterations: ' + da(q));
+              if (m && !r--)
+                throw i.$$phase = null, Error(b + ' $digest() iterations reached. Aborting!\nWatchers fired in the last 5 iterations: ' + ba(q));
             } while (m || o.length);
             i.$$phase = null;
           },
@@ -2546,18 +2521,18 @@ angular.module('app.letters', []).controller('AController', [
       }
     ];
   }
-  function Uc() {
+  function Xc() {
     this.$get = [
       '$window',
       function (b) {
-        var a = {}, c = G((/android (\d+)/.exec(z(b.navigator.userAgent)) || [])[1]);
+        var a = {}, c = G((/android (\d+)/.exec(y(b.navigator.userAgent)) || [])[1]);
         return {
           history: !(!b.history || !b.history.pushState || c < 4),
           hashchange: 'onhashchange' in b && (!b.document.documentMode || b.document.documentMode > 7),
           hasEvent: function (c) {
-            if (c == 'input' && Z == 9)
+            if (c == 'input' && V == 9)
               return !1;
-            if (w(a[c])) {
+            if (u(a[c])) {
               var e = b.document.createElement('div');
               a[c] = 'on' + c in e;
             }
@@ -2568,29 +2543,29 @@ angular.module('app.letters', []).controller('AController', [
       }
     ];
   }
-  function Vc() {
+  function Yc() {
     this.$get = I(P);
   }
-  function Ob(b) {
+  function Qb(b) {
     var a = {}, c, d, e;
     if (!b)
       return a;
     m(b.split('\n'), function (b) {
       e = b.indexOf(':');
-      c = z(Q(b.substr(0, e)));
-      d = Q(b.substr(e + 1));
+      c = y(S(b.substr(0, e)));
+      d = S(b.substr(e + 1));
       c && (a[c] ? a[c] += ', ' + d : a[c] = d);
     });
     return a;
   }
-  function Pb(b) {
-    var a = L(b) ? b : q;
+  function Rb(b) {
+    var a = M(b) ? b : q;
     return function (c) {
-      a || (a = Ob(b));
-      return c ? a[z(c)] || null : a;
+      a || (a = Qb(b));
+      return c ? a[y(c)] || null : a;
     };
   }
-  function Qb(b, a, c) {
+  function Sb(b, a, c) {
     if (H(c))
       return c(b, a);
     m(c, function (c) {
@@ -2598,14 +2573,14 @@ angular.module('app.letters', []).controller('AController', [
     });
     return b;
   }
-  function Wc() {
+  function Zc() {
     var b = /^\s*(\[|\{[^\{])/, a = /[\}\]]\s*$/, c = /^\)\]\}',?\n/, d = this.defaults = {
         transformResponse: [function (d) {
-            B(d) && (d = d.replace(c, ''), b.test(d) && a.test(d) && (d = pb(d, !0)));
+            B(d) && (d = d.replace(c, ''), b.test(d) && a.test(d) && (d = qb(d, !0)));
             return d;
           }],
         transformRequest: [function (a) {
-            return L(a) && wa.apply(a) !== '[object File]' ? da(a) : a;
+            return M(a) && ma.apply(a) !== '[object File]' ? ba(a) : a;
           }],
         headers: {
           common: {
@@ -2626,37 +2601,51 @@ angular.module('app.letters', []).controller('AController', [
       function (a, b, c, i, j, k) {
         function l(a) {
           function c(a) {
-            var b = v({}, a, { data: Qb(a.data, a.headers, f) });
+            var b = D({}, a, { data: Sb(a.data, a.headers, f) });
             return 200 <= a.status && a.status < 300 ? b : j.reject(b);
           }
           a.method = la(a.method);
-          var e = a.transformRequest || d.transformRequest, f = a.transformResponse || d.transformResponse, g = d.headers, g = v({ 'X-XSRF-TOKEN': b.cookies()['XSRF-TOKEN'] }, g.common, g[z(a.method)], a.headers), e = Qb(a.data, Pb(g), e), i;
-          w(a.data) && delete g['Content-Type'];
-          i = n(a, e, g);
-          i = i.then(c, c);
-          m(s, function (a) {
-            i = a(i);
+          var e = a.transformRequest || d.transformRequest, f = a.transformResponse || d.transformResponse, g = D({}, a.headers), i = D({ 'X-XSRF-TOKEN': b.cookies()['XSRF-TOKEN'] }, d.headers.common, d.headers[y(a.method)]), k, l, o, p;
+          a:
+            for (k in i) {
+              l = y(k);
+              for (o in a.headers)
+                if (y(o) === l)
+                  continue a;
+              g[k] = i[k];
+            }
+          if (u(a.data))
+            for (var q in g)
+              if (y(q) === 'content-type') {
+                delete g[q];
+                break;
+              }
+          e = Sb(a.data, Rb(g), e);
+          p = n(a, e, g);
+          p = p.then(c, c);
+          m(z, function (a) {
+            p = a(p);
           });
-          i.success = function (b) {
-            i.then(function (c) {
+          p.success = function (b) {
+            p.then(function (c) {
               b(c.data, c.status, c.headers, a);
             });
-            return i;
+            return p;
           };
-          i.error = function (b) {
-            i.then(null, function (c) {
+          p.error = function (b) {
+            p.then(null, function (c) {
               b(c.data, c.status, c.headers, a);
             });
-            return i;
+            return p;
           };
-          return i;
+          return p;
         }
         function n(b, c, d) {
           function e(a, b, c) {
             m && (200 <= a && a < 300 ? m.put(q, [
               a,
               b,
-              Ob(c)
+              Qb(c)
             ]) : m.remove(q));
             f(b, a, c);
             i.$apply();
@@ -2666,7 +2655,7 @@ angular.module('app.letters', []).controller('AController', [
             (200 <= c && c < 300 ? k.resolve : k.reject)({
               data: a,
               status: c,
-              headers: Pb(d),
+              headers: Rb(d),
               config: b
             });
           }
@@ -2674,39 +2663,39 @@ angular.module('app.letters', []).controller('AController', [
             var a = za(l.pendingRequests, b);
             a !== -1 && l.pendingRequests.splice(a, 1);
           }
-          var k = j.defer(), n = k.promise, m, s, q = o(b.url, b.params);
+          var k = j.defer(), n = k.promise, m, t, q = o(b.url, b.params);
           l.pendingRequests.push(b);
           n.then(h, h);
-          b.cache && b.method == 'GET' && (m = L(b.cache) ? b.cache : p);
+          b.cache && b.method == 'GET' && (m = M(b.cache) ? b.cache : p);
           if (m)
-            if (s = m.get(q))
-              if (s.then)
-                return s.then(h, h), s;
+            if (t = m.get(q))
+              if (t.then)
+                return t.then(h, h), t;
               else
-                E(s) ? f(s[1], s[0], U(s[2])) : f(s, 200, {});
+                E(t) ? f(t[1], t[0], U(t[2])) : f(t, 200, {});
             else
               m.put(q, n);
-          s || a(b.method, q, c, e, d, b.timeout, b.withCredentials);
+          t || a(b.method, q, c, e, d, b.timeout, b.withCredentials);
           return n;
         }
         function o(a, b) {
           if (!b)
             return a;
           var c = [];
-          fc(b, function (a, b) {
-            a == null || a == q || (L(a) && (a = da(a)), c.push(encodeURIComponent(b) + '=' + encodeURIComponent(a)));
+          hc(b, function (a, b) {
+            a == null || a == q || (M(a) && (a = ba(a)), c.push(encodeURIComponent(b) + '=' + encodeURIComponent(a)));
           });
           return a + (a.indexOf('?') == -1 ? '?' : '&') + c.join('&');
         }
-        var p = c('$http'), s = [];
+        var p = c('$http'), z = [];
         m(e, function (a) {
-          s.push(B(a) ? k.get(a) : k.invoke(a));
+          z.push(B(a) ? k.get(a) : k.invoke(a));
         });
         l.pendingRequests = [];
         (function (a) {
           m(arguments, function (a) {
             l[a] = function (b, c) {
-              return l(v(c || {}, {
+              return l(D(c || {}, {
                 method: a,
                 url: b
               }));
@@ -2716,7 +2705,7 @@ angular.module('app.letters', []).controller('AController', [
         (function (a) {
           m(arguments, function (a) {
             l[a] = function (b, c, d) {
-              return l(v(d || {}, {
+              return l(D(d || {}, {
                 method: a,
                 url: b,
                 data: c
@@ -2729,17 +2718,17 @@ angular.module('app.letters', []).controller('AController', [
       }
     ];
   }
-  function Xc() {
+  function $c() {
     this.$get = [
       '$browser',
       '$window',
       '$document',
       function (b, a, c) {
-        return Yc(b, Zc, b.defer, a.angular.callbacks, c[0], a.location.protocol.replace(':', ''));
+        return ad(b, bd, b.defer, a.angular.callbacks, c[0], a.location.protocol.replace(':', ''));
       }
     ];
   }
-  function Yc(b, a, c, d, e, g) {
+  function ad(b, a, c, d, e, g) {
     function h(a, b) {
       var c = e.createElement('script'), d = function () {
           e.body.removeChild(c);
@@ -2747,41 +2736,41 @@ angular.module('app.letters', []).controller('AController', [
         };
       c.type = 'text/javascript';
       c.src = a;
-      Z ? c.onreadystatechange = function () {
+      V ? c.onreadystatechange = function () {
         /loaded|complete/.test(c.readyState) && d();
       } : c.onload = c.onerror = d;
       e.body.appendChild(c);
     }
     return function (e, i, j, k, l, n, o) {
       function p(a, c, d, e) {
-        c = (i.match(Hb) || [
+        c = (i.match(Jb) || [
           '',
           g
         ])[1] == 'file' ? d ? 200 : 404 : c;
         a(c == 1223 ? 204 : c, d, e);
-        b.$$completeOutstandingRequest(C);
+        b.$$completeOutstandingRequest(s);
       }
       b.$$incOutstandingRequestCount();
       i = i || b.url();
-      if (z(e) == 'jsonp') {
-        var s = '_' + (d.counter++).toString(36);
-        d[s] = function (a) {
-          d[s].data = a;
+      if (y(e) == 'jsonp') {
+        var q = '_' + (d.counter++).toString(36);
+        d[q] = function (a) {
+          d[q].data = a;
         };
-        h(i.replace('JSON_CALLBACK', 'angular.callbacks.' + s), function () {
-          d[s].data ? p(k, 200, d[s].data) : p(k, -2);
-          delete d[s];
+        h(i.replace('JSON_CALLBACK', 'angular.callbacks.' + q), function () {
+          d[q].data ? p(k, 200, d[q].data) : p(k, -2);
+          delete d[q];
         });
       } else {
-        var t = new a();
-        t.open(e, i, !0);
+        var r = new a();
+        r.open(e, i, !0);
         m(l, function (a, b) {
-          a && t.setRequestHeader(b, a);
+          a && r.setRequestHeader(b, a);
         });
-        var q;
-        t.onreadystatechange = function () {
-          if (t.readyState == 4) {
-            var a = t.getAllResponseHeaders(), b = [
+        var x;
+        r.onreadystatechange = function () {
+          if (r.readyState == 4) {
+            var a = r.getAllResponseHeaders(), b = [
                 'Cache-Control',
                 'Content-Language',
                 'Content-Type',
@@ -2790,23 +2779,23 @@ angular.module('app.letters', []).controller('AController', [
                 'Pragma'
               ];
             a || (a = '', m(b, function (b) {
-              var c = t.getResponseHeader(b);
+              var c = r.getResponseHeader(b);
               c && (a += b + ': ' + c + '\n');
             }));
-            p(k, q || t.status, t.responseText, a);
+            p(k, x || r.status, r.responseText, a);
           }
         };
         if (o)
-          t.withCredentials = !0;
-        t.send(j || '');
+          r.withCredentials = !0;
+        r.send(j || '');
         n > 0 && c(function () {
-          q = -1;
-          t.abort();
+          x = -1;
+          r.abort();
         }, n);
       }
     };
   }
-  function $c() {
+  function cd() {
     this.$get = function () {
       return {
         id: 'en-us',
@@ -2863,7 +2852,7 @@ angular.module('app.letters', []).controller('AController', [
       };
     };
   }
-  function ad() {
+  function dd() {
     this.$get = [
       '$rootScope',
       '$browser',
@@ -2871,30 +2860,29 @@ angular.module('app.letters', []).controller('AController', [
       '$exceptionHandler',
       function (b, a, c, d) {
         function e(e, f, i) {
-          var j = c.defer(), k = j.promise, l = y(i) && !i, f = a.defer(function () {
+          var j = c.defer(), k = j.promise, l = v(i) && !i, f = a.defer(function () {
               try {
                 j.resolve(e());
               } catch (a) {
                 j.reject(a), d(a);
+              } finally {
+                delete g[k.$$timeoutId];
               }
               l || b.$apply();
-            }, f), i = function () {
-              delete g[k.$$timeoutId];
-            };
+            }, f);
           k.$$timeoutId = f;
           g[f] = j;
-          k.then(i, i);
           return k;
         }
         var g = {};
         e.cancel = function (b) {
-          return b && b.$$timeoutId in g ? (g[b.$$timeoutId].reject('canceled'), a.defer.cancel(b.$$timeoutId)) : !1;
+          return b && b.$$timeoutId in g ? (g[b.$$timeoutId].reject('canceled'), delete g[b.$$timeoutId], a.defer.cancel(b.$$timeoutId)) : !1;
         };
         return e;
       }
     ];
   }
-  function Rb(b) {
+  function Tb(b) {
     function a(a, e) {
       return b.factory(a + c, e);
     }
@@ -2908,17 +2896,17 @@ angular.module('app.letters', []).controller('AController', [
         };
       }
     ];
-    a('currency', Sb);
-    a('date', Tb);
-    a('filter', bd);
-    a('json', cd);
-    a('limitTo', dd);
-    a('lowercase', ed);
-    a('number', Ub);
-    a('orderBy', Vb);
-    a('uppercase', fd);
+    a('currency', Ub);
+    a('date', Vb);
+    a('filter', ed);
+    a('json', fd);
+    a('limitTo', gd);
+    a('lowercase', hd);
+    a('number', Wb);
+    a('orderBy', Xb);
+    a('uppercase', id);
   }
-  function bd() {
+  function ed() {
     return function (b, a) {
       if (!E(b))
         return b;
@@ -2966,7 +2954,7 @@ angular.module('app.letters', []).controller('AController', [
           }() : function () {
             var b = e, f = ('' + a[e]).toLowerCase();
             f && c.push(function (a) {
-              return d(gb(a, b), f);
+              return d(cb(a, b), f);
             });
           }();
         break;
@@ -2983,21 +2971,21 @@ angular.module('app.letters', []).controller('AController', [
       return g;
     };
   }
-  function Sb(b) {
-    var a = b.NUMBER_FORMATS;
-    return function (b, d) {
-      if (w(d))
-        d = a.CURRENCY_SYM;
-      return Wb(b, a.PATTERNS[1], a.GROUP_SEP, a.DECIMAL_SEP, 2).replace(/\u00A4/g, d);
-    };
-  }
   function Ub(b) {
     var a = b.NUMBER_FORMATS;
     return function (b, d) {
-      return Wb(b, a.PATTERNS[0], a.GROUP_SEP, a.DECIMAL_SEP, d);
+      if (u(d))
+        d = a.CURRENCY_SYM;
+      return Yb(b, a.PATTERNS[1], a.GROUP_SEP, a.DECIMAL_SEP, 2).replace(/\u00A4/g, d);
     };
   }
-  function Wb(b, a, c, d, e) {
+  function Wb(b) {
+    var a = b.NUMBER_FORMATS;
+    return function (b, d) {
+      return Yb(b, a.PATTERNS[0], a.GROUP_SEP, a.DECIMAL_SEP, d);
+    };
+  }
+  function Yb(b, a, c, d, e) {
     if (isNaN(b) || !isFinite(b))
       return '';
     var g = b < 0, b = Math.abs(b), h = b + '', f = '', i = [], j = !1;
@@ -3005,10 +2993,12 @@ angular.module('app.letters', []).controller('AController', [
       var k = h.match(/([\d\.]+)e(-?)(\d+)/);
       k && k[2] == '-' && k[3] > e + 1 ? h = '0' : (f = h, j = !0);
     }
-    if (!j) {
-      h = (h.split(Xb)[1] || '').length;
-      w(e) && (e = Math.min(Math.max(a.minFrac, h), a.maxFrac));
-      var h = Math.pow(10, e), b = Math.round(b * h) / h, b = ('' + b).split(Xb), h = b[0], b = b[1] || '', j = 0, k = a.lgSize, l = a.gSize;
+    if (j)
+      e > 0 && b > -1 && b < 1 && (f = b.toFixed(e));
+    else {
+      h = (h.split(Zb)[1] || '').length;
+      u(e) && (e = Math.min(Math.max(a.minFrac, h), a.maxFrac));
+      var h = Math.pow(10, e), b = Math.round(b * h) / h, b = ('' + b).split(Zb), h = b[0], b = b[1] || '', j = 0, k = a.lgSize, l = a.gSize;
       if (h.length >= k + l)
         for (var j = h.length - k, n = 0; n < j; n++)
           (j - n) % l === 0 && n !== 0 && (f += c), f += h.charAt(n);
@@ -3023,7 +3013,7 @@ angular.module('app.letters', []).controller('AController', [
     i.push(g ? a.negSuf : a.posSuf);
     return i.join('');
   }
-  function jb(b, a, c) {
+  function kb(b, a, c) {
     var d = '';
     b < 0 && (d = '-', b = -b);
     for (b = '' + b; b.length < a;)
@@ -3038,16 +3028,16 @@ angular.module('app.letters', []).controller('AController', [
       if (c > 0 || e > -c)
         e += c;
       e === 0 && c == -12 && (e = 12);
-      return jb(e, a, d);
+      return kb(e, a, d);
     };
   }
-  function Ja(b, a) {
+  function Ka(b, a) {
     return function (c, d) {
       var e = c['get' + b](), g = la(a ? 'SHORT' + b : b);
       return d[g][e];
     };
   }
-  function Tb(b) {
+  function Vb(b) {
     function a(a) {
       var b;
       if (b = a.match(c)) {
@@ -3061,25 +3051,25 @@ angular.module('app.letters', []).controller('AController', [
     var c = /^(\d{4})-?(\d\d)-?(\d\d)(?:T(\d\d)(?::?(\d\d)(?::?(\d\d)(?:\.(\d+))?)?)?(Z|([+-])(\d\d):?(\d\d))?)?$/;
     return function (c, e) {
       var g = '', h = [], f, i, e = e || 'mediumDate', e = b.DATETIME_FORMATS[e] || e;
-      B(c) && (c = gd.test(c) ? G(c) : a(c));
-      Qa(c) && (c = new Date(c));
-      if (!na(c))
+      B(c) && (c = jd.test(c) ? G(c) : a(c));
+      Ra(c) && (c = new Date(c));
+      if (!oa(c))
         return c;
       for (; e;)
-        (i = hd.exec(e)) ? (h = h.concat(ha.call(i, 1)), e = h.pop()) : (h.push(e), e = null);
+        (i = kd.exec(e)) ? (h = h.concat(ha.call(i, 1)), e = h.pop()) : (h.push(e), e = null);
       m(h, function (a) {
-        f = id[a];
+        f = ld[a];
         g += f ? f(c, b.DATETIME_FORMATS) : a.replace(/(^'|'$)/g, '').replace(/''/g, '\'');
       });
       return g;
     };
   }
-  function cd() {
+  function fd() {
     return function (b) {
-      return da(b, !0);
+      return ba(b, !0);
     };
   }
-  function dd() {
+  function gd() {
     return function (b, a) {
       if (!(b instanceof Array))
         return b;
@@ -3093,10 +3083,10 @@ angular.module('app.letters', []).controller('AController', [
       return c;
     };
   }
-  function Vb(b) {
+  function Xb(b) {
     return function (a, c, d) {
       function e(a, b) {
-        return Ua(b) ? function (b, c) {
+        return Wa(b) ? function (b, c) {
           return a(c, b);
         } : a;
       }
@@ -3104,8 +3094,8 @@ angular.module('app.letters', []).controller('AController', [
         return a;
       if (!c)
         return a;
-      for (var c = E(c) ? c : [c], c = Ra(c, function (a) {
-            var c = !1, d = a || ma;
+      for (var c = E(c) ? c : [c], c = Ta(c, function (a) {
+            var c = !1, d = a || na;
             if (B(a)) {
               if (a.charAt(0) == '+' || a.charAt(0) == '-')
                 c = a.charAt(0) == '-', a = a.substring(1);
@@ -3115,7 +3105,7 @@ angular.module('app.letters', []).controller('AController', [
               var c;
               c = d(a);
               var e = d(b), f = typeof c, g = typeof e;
-              f == g ? (f == 'string' && (c = c.toLowerCase()), f == 'string' && (e = e.toLowerCase()), c = c === e ? 0 : c < e ? -1 : 1) : c = f < g ? -1 : 1;
+              f == g ? (f == 'string' && (c = c.toLowerCase(), e = e.toLowerCase()), c = c === e ? 0 : c < e ? -1 : 1) : c = f < g ? -1 : 1;
               return c;
             }, c);
           }), g = [], h = 0; h < a.length; h++)
@@ -3130,24 +3120,24 @@ angular.module('app.letters', []).controller('AController', [
       }, d));
     };
   }
-  function S(b) {
+  function W(b) {
     H(b) && (b = { link: b });
     b.restrict = b.restrict || 'AC';
     return I(b);
   }
-  function Yb(b, a) {
+  function $b(b, a) {
     function c(a, c) {
-      c = c ? '-' + Za(c, '-') : '';
-      b.removeClass((a ? Ka : La) + c).addClass((a ? La : Ka) + c);
+      c = c ? '-' + ab(c, '-') : '';
+      b.removeClass((a ? La : Ma) + c).addClass((a ? Ma : La) + c);
     }
-    var d = this, e = b.parent().controller('form') || Ma, g = 0, h = d.$error = {};
-    d.$name = a.name;
+    var d = this, e = b.parent().controller('form') || Na, g = 0, h = d.$error = {};
+    d.$name = a.name || a.ngForm;
     d.$dirty = !1;
     d.$pristine = !0;
     d.$valid = !0;
     d.$invalid = !1;
     e.$addControl(d);
-    b.addClass(Na);
+    b.addClass(Oa);
     c(!0);
     d.$addControl = function (a) {
       a.$name && !d.hasOwnProperty(a.$name) && (d[a.$name] = a);
@@ -3161,7 +3151,7 @@ angular.module('app.letters', []).controller('AController', [
     d.$setValidity = function (a, b, j) {
       var k = h[a];
       if (b) {
-        if (k && (Sa(k, j), !k.length)) {
+        if (k && (Ua(k, j), !k.length)) {
           g--;
           if (!g)
             c(b), d.$valid = !0, d.$invalid = !1;
@@ -3182,18 +3172,18 @@ angular.module('app.letters', []).controller('AController', [
       }
     };
     d.$setDirty = function () {
-      b.removeClass(Na).addClass(Zb);
+      b.removeClass(Oa).addClass(ac);
       d.$dirty = !0;
       d.$pristine = !1;
       e.$setDirty();
     };
   }
   function X(b) {
-    return w(b) || b === '' || b === null || b !== b;
+    return u(b) || b === '' || b === null || b !== b;
   }
-  function Oa(b, a, c, d, e, g) {
+  function Pa(b, a, c, d, e, g) {
     var h = function () {
-      var c = Q(a.val());
+      var c = S(a.val());
       d.$viewValue !== c && b.$apply(function () {
         d.$setViewValue(c);
       });
@@ -3243,23 +3233,23 @@ angular.module('app.letters', []).controller('AController', [
       d.$formatters.push(c);
     }
   }
-  function kb(b, a) {
+  function lb(b, a) {
     b = 'ngClass' + b;
-    return S(function (c, d, e) {
+    return W(function (c, d, e) {
       function g(b) {
         if (a === !0 || c.$index % 2 === a)
-          i && !fa(b, i) && h(i), f(b);
+          i && !ea(b, i) && h(i), f(b);
         i = U(b);
       }
       function h(a) {
-        L(a) && !E(a) && (a = Ra(a, function (a, b) {
+        M(a) && !E(a) && (a = Ta(a, function (a, b) {
           if (a)
             return b;
         }));
         d.removeClass(E(a) ? a.join(' ') : a);
       }
       function f(a) {
-        L(a) && !E(a) && (a = Ra(a, function (a, b) {
+        M(a) && !E(a) && (a = Ta(a, function (a, b) {
           if (a)
             return b;
         }));
@@ -3277,45 +3267,52 @@ angular.module('app.letters', []).controller('AController', [
       });
     });
   }
-  var z = function (b) {
+  var y = function (b) {
       return B(b) ? b.toLowerCase() : b;
     }, la = function (b) {
       return B(b) ? b.toUpperCase() : b;
-    }, Z = G((/msie (\d+)/.exec(z(navigator.userAgent)) || [])[1]), u, ca, ha = [].slice, Pa = [].push, wa = Object.prototype.toString, Ya = P.angular || (P.angular = {}), sa, fb, aa = [
+    }, V = G((/msie (\d+)/.exec(y(navigator.userAgent)) || [])[1]), w, aa, ha = [].slice, Qa = [].push, ma = Object.prototype.toString, $a = P.angular || (P.angular = {}), ta, Ga, Z = [
       '0',
       '0',
       '0'
     ];
-  C.$inject = [];
-  ma.$inject = [];
-  fb = Z < 9 ? function (b) {
+  s.$inject = [];
+  na.$inject = [];
+  var S = function () {
+      return !String.prototype.trim ? function (b) {
+        return B(b) ? b.replace(/^\s*/, '').replace(/\s*$/, '') : b;
+      } : function (b) {
+        return B(b) ? b.trim() : b;
+      };
+    }();
+  Ga = V < 9 ? function (b) {
     b = b.nodeName ? b : b[0];
     return b.scopeName && b.scopeName != 'HTML' ? la(b.scopeName + ':' + b.nodeName) : b.nodeName;
   } : function (b) {
     return b.nodeName ? b.nodeName : b[0].nodeName;
   };
-  var kc = /[A-Z]/g, jd = {
-      full: '1.0.7',
+  var mc = /[A-Z]/g, md = {
+      full: '1.0.8',
       major: 1,
       minor: 0,
-      dot: 7,
-      codeName: 'monochromatic-rainbow'
-    }, Ba = K.cache = {}, Aa = K.expando = 'ng-' + new Date().getTime(), oc = 1, $b = P.document.addEventListener ? function (b, a, c) {
+      dot: 8,
+      codeName: 'bubble-burst'
+    }, Ba = L.cache = {}, Aa = L.expando = 'ng-' + new Date().getTime(), qc = 1, bc = P.document.addEventListener ? function (b, a, c) {
       b.addEventListener(a, c, !1);
     } : function (b, a, c) {
       b.attachEvent('on' + a, c);
-    }, db = P.document.removeEventListener ? function (b, a, c) {
+    }, gb = P.document.removeEventListener ? function (b, a, c) {
       b.removeEventListener(a, c, !1);
     } : function (b, a, c) {
       b.detachEvent('on' + a, c);
-    }, mc = /([\:\-\_]+(.))/g, nc = /^moz([A-Z])/, ua = K.prototype = {
+    }, oc = /([\:\-\_]+(.))/g, pc = /^moz([A-Z])/, va = L.prototype = {
       ready: function (b) {
         function a() {
           c || (c = !0, b());
         }
         var c = !1;
         this.bind('DOMContentLoaded', a);
-        K(P).bind('load', a);
+        L(P).bind('load', a);
       },
       toString: function () {
         var b = [];
@@ -3325,27 +3322,27 @@ angular.module('app.letters', []).controller('AController', [
         return '[' + b.join(', ') + ']';
       },
       eq: function (b) {
-        return b >= 0 ? u(this[b]) : u(this[this.length + b]);
+        return b >= 0 ? w(this[b]) : w(this[this.length + b]);
       },
       length: 0,
-      push: Pa,
+      push: Qa,
       sort: [].sort,
       splice: [].splice
     }, Ea = {};
   m('multiple,selected,checked,disabled,readOnly,required'.split(','), function (b) {
-    Ea[z(b)] = b;
+    Ea[y(b)] = b;
   });
-  var Bb = {};
+  var Db = {};
   m('input,select,option,textarea,button,form'.split(','), function (b) {
-    Bb[la(b)] = !0;
+    Db[la(b)] = !0;
   });
   m({
-    data: wb,
+    data: yb,
     inheritedData: Da,
     scope: function (b) {
       return Da(b, '$scope');
     },
-    controller: zb,
+    controller: Bb,
     injector: function (b) {
       return Da(b, '$injector');
     },
@@ -3354,69 +3351,77 @@ angular.module('app.letters', []).controller('AController', [
     },
     hasClass: Ca,
     css: function (b, a, c) {
-      a = tb(a);
-      if (y(c))
+      a = vb(a);
+      if (v(c))
         b.style[a] = c;
       else {
         var d;
-        Z <= 8 && (d = b.currentStyle && b.currentStyle[a], d === '' && (d = 'auto'));
+        V <= 8 && (d = b.currentStyle && b.currentStyle[a], d === '' && (d = 'auto'));
         d = d || b.style[a];
-        Z <= 8 && (d = d === '' ? q : d);
+        V <= 8 && (d = d === '' ? q : d);
         return d;
       }
     },
     attr: function (b, a, c) {
-      var d = z(a);
+      var d = y(a);
       if (Ea[d])
-        if (y(c))
+        if (v(c))
           c ? (b[a] = !0, b.setAttribute(a, d)) : (b[a] = !1, b.removeAttribute(d));
         else
-          return b[a] || (b.attributes.getNamedItem(a) || C).specified ? d : q;
-      else if (y(c))
+          return b[a] || (b.attributes.getNamedItem(a) || s).specified ? d : q;
+      else if (v(c))
         b.setAttribute(a, c);
       else if (b.getAttribute)
         return b = b.getAttribute(a, 2), b === null ? q : b;
     },
     prop: function (b, a, c) {
-      if (y(c))
+      if (v(c))
         b[a] = c;
       else
         return b[a];
     },
-    text: v(Z < 9 ? function (b, a) {
+    text: D(V < 9 ? function (b, a) {
       if (b.nodeType == 1) {
-        if (w(a))
+        if (u(a))
           return b.innerText;
         b.innerText = a;
       } else {
-        if (w(a))
+        if (u(a))
           return b.nodeValue;
         b.nodeValue = a;
       }
     } : function (b, a) {
-      if (w(a))
+      if (u(a))
         return b.textContent;
       b.textContent = a;
     }, { $dv: '' }),
     val: function (b, a) {
-      if (w(a))
+      if (u(a)) {
+        if (Ga(b) === 'SELECT' && b.multiple) {
+          var c = [];
+          m(b.options, function (a) {
+            a.selected && c.push(a.value || a.text);
+          });
+          return c.length === 0 ? null : c;
+        }
         return b.value;
+      }
       b.value = a;
     },
     html: function (b, a) {
-      if (w(a))
+      if (u(a))
         return b.innerHTML;
       for (var c = 0, d = b.childNodes; c < d.length; c++)
-        ra(d[c]);
+        sa(d[c]);
       b.innerHTML = a;
     }
   }, function (b, a) {
-    K.prototype[a] = function (a, d) {
+    L.prototype[a] = function (a, d) {
       var e, g;
-      if ((b.length == 2 && b !== Ca && b !== zb ? a : d) === q)
-        if (L(a)) {
+      if ((b.length == 2 && b !== Ca && b !== Bb ? a : d) === q)
+        if (M(a)) {
           for (e = 0; e < this.length; e++)
-            if (b === wb)
+            if (b === yb)
               b(this[e], a);
             else
               for (g in a)
@@ -3435,12 +3440,12 @@ angular.module('app.letters', []).controller('AController', [
     };
   });
   m({
-    removeData: ub,
-    dealoc: ra,
+    removeData: wb,
+    dealoc: sa,
     bind: function a(c, d, e) {
-      var g = ba(c, 'events'), h = ba(c, 'handle');
-      g || ba(c, 'events', g = {});
-      h || ba(c, 'handle', h = pc(c, g));
+      var g = $(c, 'events'), h = $(c, 'handle');
+      g || $(c, 'events', g = {});
+      h || $(c, 'handle', h = rc(c, g));
       m(d.split(' '), function (d) {
         var i = g[d];
         if (!i) {
@@ -3464,17 +3469,17 @@ angular.module('app.letters', []).controller('AController', [
               (!c || c !== this && !j(this, c)) && h(a, d);
             });
           } else
-            $b(c, d, h), g[d] = [];
+            bc(c, d, h), g[d] = [];
           i = g[d];
         }
         i.push(e);
       });
     },
-    unbind: vb,
+    unbind: xb,
     replaceWith: function (a, c) {
       var d, e = a.parentNode;
-      ra(a);
-      m(new K(c), function (c) {
+      sa(a);
+      m(new L(c), function (c) {
         d ? e.insertBefore(c, d.nextSibling) : e.replaceChild(c, a);
         d = c;
       });
@@ -3490,40 +3495,40 @@ angular.module('app.letters', []).controller('AController', [
       return a.childNodes || [];
     },
     append: function (a, c) {
-      m(new K(c), function (c) {
+      m(new L(c), function (c) {
         a.nodeType === 1 && a.appendChild(c);
       });
     },
     prepend: function (a, c) {
       if (a.nodeType === 1) {
         var d = a.firstChild;
-        m(new K(c), function (c) {
-          d ? a.insertBefore(c, d) : (a.appendChild(c), d = c);
+        m(new L(c), function (c) {
+          a.insertBefore(c, d);
         });
       }
     },
     wrap: function (a, c) {
-      var c = u(c)[0], d = a.parentNode;
+      var c = w(c)[0], d = a.parentNode;
       d && d.replaceChild(c, a);
       c.appendChild(a);
     },
     remove: function (a) {
-      ra(a);
+      sa(a);
       var c = a.parentNode;
       c && c.removeChild(a);
     },
     after: function (a, c) {
       var d = a, e = a.parentNode;
-      m(new K(c), function (a) {
+      m(new L(c), function (a) {
         e.insertBefore(a, d.nextSibling);
         d = a;
       });
     },
-    addClass: yb,
-    removeClass: xb,
+    addClass: Ab,
+    removeClass: zb,
     toggleClass: function (a, c, d) {
-      w(d) && (d = !Ca(a, c));
-      (d ? yb : xb)(a, c);
+      u(d) && (d = !Ca(a, c));
+      (d ? Ab : zb)(a, c);
     },
     parent: function (a) {
       return (a = a.parentNode) && a.nodeType !== 11 ? a : null;
@@ -3538,90 +3543,90 @@ angular.module('app.letters', []).controller('AController', [
     find: function (a, c) {
       return a.getElementsByTagName(c);
     },
-    clone: cb,
+    clone: fb,
     triggerHandler: function (a, c) {
-      var d = (ba(a, 'events') || {})[c];
+      var d = ($(a, 'events') || {})[c];
       m(d, function (c) {
         c.call(a, null);
       });
     }
   }, function (a, c) {
-    K.prototype[c] = function (c, e) {
+    L.prototype[c] = function (c, e) {
       for (var g, h = 0; h < this.length; h++)
-        g == q ? (g = a(this[h], c, e), g !== q && (g = u(g))) : bb(g, a(this[h], c, e));
+        g == q ? (g = a(this[h], c, e), g !== q && (g = w(g))) : eb(g, a(this[h], c, e));
       return g == q ? this : g;
     };
   });
   Fa.prototype = {
     put: function (a, c) {
-      this[ga(a)] = c;
+      this[fa(a)] = c;
     },
     get: function (a) {
-      return this[ga(a)];
+      return this[fa(a)];
     },
     remove: function (a) {
-      var c = this[a = ga(a)];
+      var c = this[a = fa(a)];
       delete this[a];
       return c;
     }
   };
-  eb.prototype = {
+  hb.prototype = {
     push: function (a, c) {
-      var d = this[a = ga(a)];
+      var d = this[a = fa(a)];
       d ? d.push(c) : this[a] = [c];
     },
     shift: function (a) {
-      var c = this[a = ga(a)];
+      var c = this[a = fa(a)];
       if (c)
         return c.length == 1 ? (delete this[a], c[0]) : c.shift();
     },
     peek: function (a) {
-      if (a = this[ga(a)])
+      if (a = this[fa(a)])
         return a[0];
     }
   };
-  var rc = /^function\s*[^\(]*\(\s*([^\)]*)\)/m, sc = /,/, tc = /^\s*(_?)(\S+?)\1\s*$/, qc = /((\/\/.*$)|(\/\*[\s\S]*?\*\/))/gm, Eb = 'Non-assignable model expression: ';
-  Db.$inject = ['$provide'];
-  var Bc = /^(x[\:\-_]|data[\:\-_])/i, Hb = /^([^:]+):\/\/(\w+:{0,1}\w*@)?(\{?[\w\.-]*\}?)(:([0-9]+))?(\/[^\?#]*)?(\?([^#]*))?(#(.*))?$/, ac = /^([^\?#]*)?(\?([^#]*))?(#(.*))?$/, Ic = ac, Ib = {
+  var tc = /^function\s*[^\(]*\(\s*([^\)]*)\)/m, uc = /,/, vc = /^\s*(_?)(\S+?)\1\s*$/, sc = /((\/\/.*$)|(\/\*[\s\S]*?\*\/))/gm, Gb = 'Non-assignable model expression: ';
+  Fb.$inject = ['$provide'];
+  var Ec = /^(x[\:\-_]|data[\:\-_])/i, Jb = /^([^:]+):\/\/(\w+:{0,1}\w*@)?(\{?[\w\.-]*\}?)(:([0-9]+))?(\/[^\?#]*)?(\?([^#]*))?(#(.*))?$/, cc = /^([^\?#]*)?(\?([^#]*))?(#(.*))?$/, Lc = cc, Kb = {
       http: 80,
       https: 443,
       ftp: 21
     };
-  hb.prototype = {
+  ib.prototype = {
     $$replace: !1,
-    absUrl: Ha('$$absUrl'),
+    absUrl: Ia('$$absUrl'),
     url: function (a, c) {
-      if (w(a))
+      if (u(a))
         return this.$$url;
-      var d = ac.exec(a);
+      var d = cc.exec(a);
       d[1] && this.path(decodeURIComponent(d[1]));
       if (d[2] || d[1])
         this.search(d[3] || '');
       this.hash(d[5] || '', c);
       return this;
     },
-    protocol: Ha('$$protocol'),
-    host: Ha('$$host'),
-    port: Ha('$$port'),
-    path: Kb('$$path', function (a) {
+    protocol: Ia('$$protocol'),
+    host: Ia('$$host'),
+    port: Ia('$$port'),
+    path: Mb('$$path', function (a) {
       return a.charAt(0) == '/' ? a : '/' + a;
     }),
     search: function (a, c) {
-      if (w(a))
+      if (u(a))
         return this.$$search;
-      y(c) ? c === null ? delete this.$$search[a] : this.$$search[a] = c : this.$$search = B(a) ? Va(a) : a;
+      v(c) ? c === null ? delete this.$$search[a] : this.$$search[a] = c : this.$$search = B(a) ? Xa(a) : a;
       this.$$compose();
       return this;
     },
-    hash: Kb('$$hash', ma),
+    hash: Mb('$$hash', na),
     replace: function () {
       this.$$replace = !0;
       return this;
     }
   };
-  Ga.prototype = ya(hb.prototype);
-  Jb.prototype = ya(Ga.prototype);
-  var Ia = {
+  Ha.prototype = ya(ib.prototype);
+  Lb.prototype = ya(Ha.prototype);
+  var Ja = {
       'null': function () {
         return null;
       },
@@ -3631,16 +3636,16 @@ angular.module('app.letters', []).controller('AController', [
       'false': function () {
         return !1;
       },
-      undefined: C,
+      undefined: s,
       '+': function (a, c, d, e) {
         d = d(a, c);
         e = e(a, c);
-        return y(d) ? y(e) ? d + e : d : y(e) ? e : q;
+        return v(d) ? v(e) ? d + e : d : v(e) ? e : q;
       },
       '-': function (a, c, d, e) {
         d = d(a, c);
         e = e(a, c);
-        return (y(d) ? d : 0) - (y(e) ? e : 0);
+        return (v(d) ? d : 0) - (v(e) ? e : 0);
       },
       '*': function (a, c, d, e) {
         return d(a, c) * e(a, c);
@@ -3654,7 +3659,7 @@ angular.module('app.letters', []).controller('AController', [
       '^': function (a, c, d, e) {
         return d(a, c) ^ e(a, c);
       },
-      '=': C,
+      '=': s,
       '==': function (a, c, d, e) {
         return d(a, c) == e(a, c);
       },
@@ -3688,7 +3693,7 @@ angular.module('app.letters', []).controller('AController', [
       '!': function (a, c, d) {
         return !d(a, c);
       }
-    }, Mc = {
+    }, Pc = {
       n: '\n',
       f: '\f',
       r: '\r',
@@ -3696,7 +3701,7 @@ angular.module('app.letters', []).controller('AController', [
       v: '\x0B',
       '\'': '\'',
       '"': '"'
-    }, ib = {}, Zc = P.XMLHttpRequest || function () {
+    }, jb = {}, bd = P.XMLHttpRequest || function () {
       try {
         return new ActiveXObject('Msxml2.XMLHTTP.6.0');
       } catch (a) {
@@ -3711,15 +3716,15 @@ angular.module('app.letters', []).controller('AController', [
       }
       throw Error('This browser does not support XMLHttpRequest.');
     };
-  Rb.$inject = ['$provide'];
-  Sb.$inject = ['$locale'];
+  Tb.$inject = ['$provide'];
   Ub.$inject = ['$locale'];
-  var Xb = '.', id = {
+  Wb.$inject = ['$locale'];
+  var Zb = '.', ld = {
       yyyy: O('FullYear', 4),
       yy: O('FullYear', 2, 0, !0),
       y: O('FullYear', 1),
-      MMMM: Ja('Month'),
-      MMM: Ja('Month', !0),
+      MMMM: Ka('Month'),
+      MMM: Ka('Month', !0),
       MM: O('Month', 2, 1),
       M: O('Month', 1, 1),
       dd: O('Date', 2),
@@ -3732,34 +3737,34 @@ angular.module('app.letters', []).controller('AController', [
       m: O('Minutes', 1),
       ss: O('Seconds', 2),
       s: O('Seconds', 1),
-      EEEE: Ja('Day'),
-      EEE: Ja('Day', !0),
+      EEEE: Ka('Day'),
+      EEE: Ka('Day', !0),
       a: function (a, c) {
         return a.getHours() < 12 ? c.AMPMS[0] : c.AMPMS[1];
       },
       Z: function (a) {
         var a = -1 * a.getTimezoneOffset(), c = a >= 0 ? '+' : '';
-        c += jb(Math[a > 0 ? 'floor' : 'ceil'](a / 60), 2) + jb(Math.abs(a % 60), 2);
+        c += kb(Math[a > 0 ? 'floor' : 'ceil'](a / 60), 2) + kb(Math.abs(a % 60), 2);
         return c;
       }
-    }, hd = /((?:[^yMdHhmsaZE']+)|(?:'(?:[^']|'')*')|(?:E+|y+|M+|d+|H+|h+|m+|s+|a|Z))(.*)/, gd = /^\d+$/;
-  Tb.$inject = ['$locale'];
-  var ed = I(z), fd = I(la);
-  Vb.$inject = ['$parse'];
-  var kd = I({
+    }, kd = /((?:[^yMdHhmsaZE']+)|(?:'(?:[^']|'')*')|(?:E+|y+|M+|d+|H+|h+|m+|s+|a|Z))(.*)/, jd = /^\d+$/;
+  Vb.$inject = ['$locale'];
+  var hd = I(y), id = I(la);
+  Xb.$inject = ['$parse'];
+  var nd = I({
       restrict: 'E',
       compile: function (a, c) {
-        Z <= 8 && (!c.href && !c.name && c.$set('href', ''), a.append(T.createComment('IE fix')));
+        V <= 8 && (!c.href && !c.name && c.$set('href', ''), a.append(T.createComment('IE fix')));
         return function (a, c) {
           c.bind('click', function (a) {
             c.attr('href') || a.preventDefault();
           });
         };
       }
-    }), lb = {};
+    }), mb = {};
   m(Ea, function (a, c) {
-    var d = ea('ng-' + c);
-    lb[d] = function () {
+    var d = ca('ng-' + c);
+    mb[d] = function () {
       return {
         priority: 100,
         compile: function () {
@@ -3776,37 +3781,37 @@ angular.module('app.letters', []).controller('AController', [
     'src',
     'href'
   ], function (a) {
-    var c = ea('ng-' + a);
-    lb[c] = function () {
+    var c = ca('ng-' + a);
+    mb[c] = function () {
       return {
         priority: 99,
         link: function (d, e, g) {
           g.$observe(c, function (c) {
-            c && (g.$set(a, c), Z && e.prop(a, g[a]));
+            c && (g.$set(a, c), V && e.prop(a, g[a]));
           });
         }
       };
     };
   });
-  var Ma = {
-      $addControl: C,
-      $removeControl: C,
-      $setValidity: C,
-      $setDirty: C
+  var Na = {
+      $addControl: s,
+      $removeControl: s,
+      $setValidity: s,
+      $setDirty: s
     };
-  Yb.$inject = [
+  $b.$inject = [
     '$element',
     '$attrs',
     '$scope'
   ];
-  var Pa = function (a) {
+  var Qa = function (a) {
       return [
         '$timeout',
         function (c) {
           var d = {
               name: 'form',
               restrict: 'E',
-              controller: Yb,
+              controller: $b,
               compile: function () {
                 return {
                   pre: function (a, d, h, f) {
@@ -3814,10 +3819,10 @@ angular.module('app.letters', []).controller('AController', [
                       var i = function (a) {
                         a.preventDefault ? a.preventDefault() : a.returnValue = !1;
                       };
-                      $b(d[0], 'submit', i);
+                      bc(d[0], 'submit', i);
                       d.bind('$destroy', function () {
                         c(function () {
-                          db(d[0], 'submit', i);
+                          gb(d[0], 'submit', i);
                         }, 0, !1);
                       });
                     }
@@ -3826,22 +3831,22 @@ angular.module('app.letters', []).controller('AController', [
                     j && d.bind('$destroy', function () {
                       j.$removeControl(f);
                       k && (a[k] = q);
-                      v(f, Ma);
+                      D(f, Na);
                     });
                   }
                 };
               }
             };
-          return a ? v(U(d), { restrict: 'EAC' }) : d;
+          return a ? D(U(d), { restrict: 'EAC' }) : d;
         }
       ];
-    }, ld = Pa(), md = Pa(!0), nd = /^(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?$/, od = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/, pd = /^\s*(\-|\+)?(\d+|(\d*(\.\d*)))\s*$/, bc = {
-      text: Oa,
+    }, od = Qa(), pd = Qa(!0), qd = /^(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?$/, rd = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}$/, sd = /^\s*(\-|\+)?(\d+|(\d*(\.\d*)))\s*$/, dc = {
+      text: Pa,
       number: function (a, c, d, e, g, h) {
-        Oa(a, c, d, e, g, h);
+        Pa(a, c, d, e, g, h);
         e.$parsers.push(function (a) {
           var c = X(a);
-          return c || pd.test(a) ? (e.$setValidity('number', !0), a === '' ? null : c ? a : parseFloat(a)) : (e.$setValidity('number', !1), q);
+          return c || sd.test(a) ? (e.$setValidity('number', !0), a === '' ? null : c ? a : parseFloat(a)) : (e.$setValidity('number', !1), q);
         });
         e.$formatters.push(function (a) {
           return X(a) ? '' : '' + a;
@@ -3861,27 +3866,27 @@ angular.module('app.letters', []).controller('AController', [
           e.$formatters.push(d);
         }
         e.$formatters.push(function (a) {
-          return X(a) || Qa(a) ? (e.$setValidity('number', !0), a) : (e.$setValidity('number', !1), q);
+          return X(a) || Ra(a) ? (e.$setValidity('number', !0), a) : (e.$setValidity('number', !1), q);
         });
       },
       url: function (a, c, d, e, g, h) {
-        Oa(a, c, d, e, g, h);
+        Pa(a, c, d, e, g, h);
         a = function (a) {
-          return X(a) || nd.test(a) ? (e.$setValidity('url', !0), a) : (e.$setValidity('url', !1), q);
+          return X(a) || qd.test(a) ? (e.$setValidity('url', !0), a) : (e.$setValidity('url', !1), q);
         };
         e.$formatters.push(a);
         e.$parsers.push(a);
       },
       email: function (a, c, d, e, g, h) {
-        Oa(a, c, d, e, g, h);
+        Pa(a, c, d, e, g, h);
         a = function (a) {
-          return X(a) || od.test(a) ? (e.$setValidity('email', !0), a) : (e.$setValidity('email', !1), q);
+          return X(a) || rd.test(a) ? (e.$setValidity('email', !0), a) : (e.$setValidity('email', !1), q);
         };
         e.$formatters.push(a);
         e.$parsers.push(a);
       },
       radio: function (a, c, d, e) {
-        w(d.name) && c.attr('name', xa());
+        u(d.name) && c.attr('name', xa());
         c.bind('click', function () {
           c[0].checked && a.$apply(function () {
             e.$setViewValue(d.value);
@@ -3911,11 +3916,11 @@ angular.module('app.letters', []).controller('AController', [
           return a ? g : h;
         });
       },
-      hidden: C,
-      button: C,
-      submit: C,
-      reset: C
-    }, cc = [
+      hidden: s,
+      button: s,
+      submit: s,
+      reset: s
+    }, ec = [
       '$browser',
       '$sniffer',
       function (a, c) {
@@ -3923,11 +3928,11 @@ angular.module('app.letters', []).controller('AController', [
           restrict: 'E',
           require: '?ngModel',
           link: function (d, e, g, h) {
-            h && (bc[z(g.type)] || bc.text)(d, e, g, h, c, a);
+            h && (dc[y(g.type)] || dc.text)(d, e, g, h, c, a);
           }
         };
       }
-    ], La = 'ng-valid', Ka = 'ng-invalid', Na = 'ng-pristine', Zb = 'ng-dirty', qd = [
+    ], Ma = 'ng-valid', La = 'ng-invalid', Oa = 'ng-pristine', ac = 'ng-dirty', td = [
       '$scope',
       '$exceptionHandler',
       '$attrs',
@@ -3935,8 +3940,8 @@ angular.module('app.letters', []).controller('AController', [
       '$parse',
       function (a, c, d, e, g) {
         function h(a, c) {
-          c = c ? '-' + Za(c, '-') : '';
-          e.removeClass((a ? Ka : La) + c).addClass((a ? La : Ka) + c);
+          c = c ? '-' + ab(c, '-') : '';
+          e.removeClass((a ? La : Ma) + c).addClass((a ? Ma : La) + c);
         }
         this.$modelValue = this.$viewValue = Number.NaN;
         this.$parsers = [];
@@ -3949,10 +3954,10 @@ angular.module('app.letters', []).controller('AController', [
         this.$name = d.name;
         var f = g(d.ngModel), i = f.assign;
         if (!i)
-          throw Error(Eb + d.ngModel + ' (' + pa(e) + ')');
-        this.$render = C;
-        var j = e.inheritedData('$formController') || Ma, k = 0, l = this.$error = {};
-        e.addClass(Na);
+          throw Error(Gb + d.ngModel + ' (' + qa(e) + ')');
+        this.$render = s;
+        var j = e.inheritedData('$formController') || Na, k = 0, l = this.$error = {};
+        e.addClass(Oa);
         h(!0);
         this.$setValidity = function (a, c) {
           if (l[a] !== !c) {
@@ -3969,7 +3974,7 @@ angular.module('app.letters', []).controller('AController', [
         this.$setViewValue = function (d) {
           this.$viewValue = d;
           if (this.$pristine)
-            this.$dirty = !0, this.$pristine = !1, e.removeClass(Na).addClass(Zb), j.$setDirty();
+            this.$dirty = !0, this.$pristine = !1, e.removeClass(Oa).addClass(ac), j.$setDirty();
           m(this.$parsers, function (a) {
             d = a(d);
           });
@@ -3994,29 +3999,29 @@ angular.module('app.letters', []).controller('AController', [
           }
         });
       }
-    ], rd = function () {
+    ], ud = function () {
       return {
         require: [
           'ngModel',
           '^?form'
         ],
-        controller: qd,
+        controller: td,
         link: function (a, c, d, e) {
-          var g = e[0], h = e[1] || Ma;
+          var g = e[0], h = e[1] || Na;
           h.$addControl(g);
           c.bind('$destroy', function () {
             h.$removeControl(g);
           });
         }
       };
-    }, sd = I({
+    }, vd = I({
       require: 'ngModel',
       link: function (a, c, d, e) {
         e.$viewChangeListeners.push(function () {
           a.$eval(d.ngChange);
         });
       }
-    }), dc = function () {
+    }), fc = function () {
       return {
         require: '?ngModel',
         link: function (a, c, d, e) {
@@ -4036,7 +4041,7 @@ angular.module('app.letters', []).controller('AController', [
           }
         }
       };
-    }, td = function () {
+    }, wd = function () {
       return {
         require: 'ngModel',
         link: function (a, c, d, e) {
@@ -4044,7 +4049,7 @@ angular.module('app.letters', []).controller('AController', [
           e.$parsers.push(function (a) {
             var c = [];
             a && m(a.split(g), function (a) {
-              a && c.push(Q(a));
+              a && c.push(S(a));
             });
             return c;
           });
@@ -4053,25 +4058,25 @@ angular.module('app.letters', []).controller('AController', [
           });
         }
       };
-    }, ud = /^(true|false|\d+)$/, vd = function () {
+    }, xd = /^(true|false|\d+)$/, yd = function () {
       return {
         priority: 100,
         compile: function (a, c) {
-          return ud.test(c.ngValue) ? function (a, c, g) {
+          return xd.test(c.ngValue) ? function (a, c, g) {
             g.$set('value', a.$eval(g.ngValue));
           } : function (a, c, g) {
             a.$watch(g.ngValue, function (a) {
-              g.$set('value', a, !1);
+              g.$set('value', a);
             });
           };
         }
       };
-    }, wd = S(function (a, c, d) {
+    }, zd = W(function (a, c, d) {
       c.addClass('ng-binding').data('$binding', d.ngBind);
       a.$watch(d.ngBind, function (a) {
         c.text(a == q ? '' : a);
       });
-    }), xd = [
+    }), Ad = [
       '$interpolate',
       function (a) {
         return function (c, d, e) {
@@ -4082,24 +4087,24 @@ angular.module('app.letters', []).controller('AController', [
           });
         };
       }
-    ], yd = [function () {
+    ], Bd = [function () {
         return function (a, c, d) {
           c.addClass('ng-binding').data('$binding', d.ngBindHtmlUnsafe);
           a.$watch(d.ngBindHtmlUnsafe, function (a) {
             c.html(a || '');
           });
         };
-      }], zd = kb('', !0), Ad = kb('Odd', 0), Bd = kb('Even', 1), Cd = S({
+      }], Cd = lb('', !0), Dd = lb('Odd', 0), Ed = lb('Even', 1), Fd = W({
       compile: function (a, c) {
         c.$set('ngCloak', q);
         a.removeClass('ng-cloak');
       }
-    }), Dd = [function () {
+    }), Gd = [function () {
         return {
           scope: !0,
           controller: '@'
         };
-      }], Ed = [
+      }], Hd = [
       '$sniffer',
       function (a) {
         return {
@@ -4109,15 +4114,15 @@ angular.module('app.letters', []).controller('AController', [
           }
         };
       }
-    ], ec = {};
-  m('click dblclick mousedown mouseup mouseover mouseout mousemove mouseenter mouseleave'.split(' '), function (a) {
-    var c = ea('ng-' + a);
-    ec[c] = [
+    ], gc = {};
+  m('click dblclick mousedown mouseup mouseover mouseout mousemove mouseenter mouseleave submit'.split(' '), function (a) {
+    var c = ca('ng-' + a);
+    gc[c] = [
       '$parse',
       function (d) {
         return function (e, g, h) {
           var f = d(h[c]);
-          g.bind(z(a), function (a) {
+          g.bind(y(a), function (a) {
             e.$apply(function () {
               f(e, { $event: a });
             });
@@ -4126,11 +4131,7 @@ angular.module('app.letters', []).controller('AController', [
       }
     ];
   });
-  var Fd = S(function (a, c, d) {
-      c.bind('submit', function () {
-        a.$apply(d.ngSubmit);
-      });
-    }), Gd = [
+  var Id = [
       '$http',
       '$templateCache',
       '$anchorScroll',
@@ -4149,7 +4150,7 @@ angular.module('app.letters', []).controller('AController', [
               g.$watch(f, function (f) {
                 var m = ++n;
                 f ? a.get(f, { cache: c }).success(function (a) {
-                  m === n && (o && o.$destroy(), o = g.$new(), h.html(a), e(h.contents())(o), y(j) && (!j || g.$eval(j)) && d(), o.$emit('$includeContentLoaded'), g.$eval(i));
+                  m === n && (o && o.$destroy(), o = g.$new(), h.html(a), e(h.contents())(o), v(j) && (!j || g.$eval(j)) && d(), o.$emit('$includeContentLoaded'), g.$eval(i));
                 }).error(function () {
                   m === n && p();
                 }) : p();
@@ -4158,7 +4159,7 @@ angular.module('app.letters', []).controller('AController', [
           }
         };
       }
-    ], Hd = S({
+    ], Jd = W({
       compile: function () {
         return {
           pre: function (a, c, d) {
@@ -4166,10 +4167,10 @@ angular.module('app.letters', []).controller('AController', [
           }
         };
       }
-    }), Id = S({
+    }), Kd = W({
       terminal: !0,
       priority: 1000
-    }), Jd = [
+    }), Ld = [
       '$locale',
       '$interpolate',
       function (a, c) {
@@ -4190,7 +4191,7 @@ angular.module('app.letters', []).controller('AController', [
           }
         };
       }
-    ], Kd = S({
+    ], Md = W({
       transclude: 'element',
       priority: 1000,
       terminal: !0,
@@ -4206,70 +4207,70 @@ angular.module('app.letters', []).controller('AController', [
             throw Error('\'item\' in \'item in collection\' should be identifier or (key, value) but got \'' + f + '\'.');
           j = h[3] || h[1];
           k = h[2];
-          var l = new eb();
+          var l = new hb();
           a.$watch(function (a) {
-            var e, f, h = a.$eval(i), m = c, q = new eb(), y, A, u, w, r, v;
+            var e, f, h = a.$eval(i), m = c, q = new hb(), u, A, w, v, C, s;
             if (E(h))
-              r = h || [];
+              C = h || [];
             else {
-              r = [];
-              for (u in h)
-                h.hasOwnProperty(u) && u.charAt(0) != '$' && r.push(u);
-              r.sort();
+              C = [];
+              for (w in h)
+                h.hasOwnProperty(w) && w.charAt(0) != '$' && C.push(w);
+              C.sort();
             }
-            y = r.length - 1;
+            u = C.length - 1;
             e = 0;
-            for (f = r.length; e < f; e++) {
-              u = h === r ? e : r[e];
-              w = h[u];
-              if (v = l.shift(w)) {
-                A = v.scope;
-                q.push(w, v);
-                if (e !== v.index)
-                  v.index = e, m.after(v.element);
-                m = v.element;
+            for (f = C.length; e < f; e++) {
+              w = h === C ? e : C[e];
+              v = h[w];
+              if (s = l.shift(v)) {
+                A = s.scope;
+                q.push(v, s);
+                if (e !== s.index)
+                  s.index = e, m.after(s.element);
+                m = s.element;
               } else
                 A = a.$new();
-              A[j] = w;
-              k && (A[k] = u);
+              A[j] = v;
+              k && (A[k] = w);
               A.$index = e;
               A.$first = e === 0;
-              A.$last = e === y;
+              A.$last = e === u;
               A.$middle = !(A.$first || A.$last);
-              v || d(A, function (a) {
+              s || d(A, function (a) {
                 m.after(a);
-                v = {
+                s = {
                   scope: A,
                   element: m = a,
                   index: e
                 };
-                q.push(w, v);
+                q.push(v, s);
               });
             }
-            for (u in l)
-              if (l.hasOwnProperty(u))
-                for (r = l[u]; r.length;)
-                  w = r.pop(), w.element.remove(), w.scope.$destroy();
+            for (w in l)
+              if (l.hasOwnProperty(w))
+                for (C = l[w]; C.length;)
+                  v = C.pop(), v.element.remove(), v.scope.$destroy();
             l = q;
           });
         };
       }
-    }), Ld = S(function (a, c, d) {
+    }), Nd = W(function (a, c, d) {
       a.$watch(d.ngShow, function (a) {
-        c.css('display', Ua(a) ? '' : 'none');
+        c.css('display', Wa(a) ? '' : 'none');
       });
-    }), Md = S(function (a, c, d) {
+    }), Od = W(function (a, c, d) {
       a.$watch(d.ngHide, function (a) {
-        c.css('display', Ua(a) ? 'none' : '');
+        c.css('display', Wa(a) ? 'none' : '');
       });
-    }), Nd = S(function (a, c, d) {
+    }), Pd = W(function (a, c, d) {
       a.$watch(d.ngStyle, function (a, d) {
         d && a !== d && m(d, function (a, d) {
           c.css(d, '');
         });
         a && c.css(a);
       }, !0);
-    }), Od = I({
+    }), Qd = I({
       restrict: 'EA',
       require: 'ngSwitch',
       controller: [
@@ -4289,7 +4290,7 @@ angular.module('app.letters', []).controller('AController', [
             });
         });
       }
-    }), Pd = S({
+    }), Rd = W({
       transclude: 'element',
       priority: 500,
       require: '^ngSwitch',
@@ -4298,7 +4299,7 @@ angular.module('app.letters', []).controller('AController', [
           f.cases['!' + c.ngSwitchWhen] = d;
         };
       }
-    }), Qd = S({
+    }), Sd = W({
       transclude: 'element',
       priority: 500,
       require: '^ngSwitch',
@@ -4307,7 +4308,7 @@ angular.module('app.letters', []).controller('AController', [
           f.cases['?'] = d;
         };
       }
-    }), Rd = S({
+    }), Td = W({
       controller: [
         '$transclude',
         '$element',
@@ -4317,7 +4318,7 @@ angular.module('app.letters', []).controller('AController', [
           });
         }
       ]
-    }), Sd = [
+    }), Ud = [
       '$http',
       '$templateCache',
       '$route',
@@ -4351,7 +4352,7 @@ angular.module('app.letters', []).controller('AController', [
           }
         };
       }
-    ], Td = [
+    ], Vd = [
       '$templateCache',
       function (a) {
         return {
@@ -4362,11 +4363,11 @@ angular.module('app.letters', []).controller('AController', [
           }
         };
       }
-    ], Ud = I({ terminal: !0 }), Vd = [
+    ], Wd = I({ terminal: !0 }), Xd = [
       '$compile',
       '$parse',
       function (a, c) {
-        var d = /^\s*(.*?)(?:\s+as\s+(.*?))?(?:\s+group\s+by\s+(.*))?\s+for\s+(?:([\$\w][\$\w\d]*)|(?:\(\s*([\$\w][\$\w\d]*)\s*,\s*([\$\w][\$\w\d]*)\s*\)))\s+in\s+(.*)$/, e = { $setViewValue: C };
+        var d = /^\s*(.*?)(?:\s+as\s+(.*?))?(?:\s+group\s+by\s+(.*))?\s+for\s+(?:([\$\w][\$\w\d]*)|(?:\(\s*([\$\w][\$\w\d]*)\s*,\s*([\$\w][\$\w\d]*)\s*\)))\s+in\s+(.*)$/, e = { $setViewValue: s };
         return {
           restrict: 'E',
           require: [
@@ -4392,7 +4393,7 @@ angular.module('app.letters', []).controller('AController', [
                 this.hasOption(a) && (delete j[a], k.$viewValue == a && this.renderUnknownOption(a));
               };
               i.renderUnknownOption = function (c) {
-                c = '? ' + ga(c) + ' ?';
+                c = '? ' + fa(c) + ' ?';
                 l.val(c);
                 a.prepend(l);
                 a.val(c);
@@ -4402,7 +4403,7 @@ angular.module('app.letters', []).controller('AController', [
                 return j.hasOwnProperty(a);
               };
               c.$on('$destroy', function () {
-                i.renderUnknownOption = C;
+                i.renderUnknownOption = s;
               });
             }
           ],
@@ -4410,11 +4411,11 @@ angular.module('app.letters', []).controller('AController', [
             function j(a, c, d, e) {
               d.$render = function () {
                 var a = d.$viewValue;
-                e.hasOption(a) ? (z.parent() && z.remove(), c.val(a), a === '' && v.prop('selected', !0)) : w(a) && v ? c.val('') : e.renderUnknownOption(a);
+                e.hasOption(a) ? (y.parent() && y.remove(), c.val(a), a === '' && x.prop('selected', !0)) : u(a) && x ? c.val('') : e.renderUnknownOption(a);
               };
               c.bind('change', function () {
                 a.$apply(function () {
-                  z.parent() && z.remove();
+                  y.parent() && y.remove();
                   d.$setViewValue(c.val());
                 });
               });
@@ -4424,11 +4425,11 @@ angular.module('app.letters', []).controller('AController', [
               d.$render = function () {
                 var a = new Fa(d.$viewValue);
                 m(c.find('option'), function (c) {
-                  c.selected = y(a.get(c.value));
+                  c.selected = v(a.get(c.value));
                 });
               };
               a.$watch(function () {
-                fa(e, d.$viewValue) || (e = U(d.$viewValue), d.$render());
+                ea(e, d.$viewValue) || (e = U(d.$viewValue), d.$render());
               });
               c.bind('change', function () {
                 a.$apply(function () {
@@ -4442,91 +4443,91 @@ angular.module('app.letters', []).controller('AController', [
             }
             function l(e, f, g) {
               function h() {
-                var a = { '': [] }, c = [''], d, i, s, u, v;
+                var a = { '': [] }, c = [''], d, i, s, v, u;
                 s = g.$modelValue;
-                u = o(e) || [];
-                var w = l ? mb(u) : u, y, x, z;
-                x = {};
-                v = !1;
+                v = o(e) || [];
+                var x = l ? nb(v) : v, C, y, z;
+                y = {};
+                u = !1;
                 var B, E;
-                p && (v = new Fa(s));
-                for (z = 0; y = w.length, z < y; z++) {
-                  x[k] = u[l ? x[l] = w[z] : z];
-                  d = m(e, x) || '';
+                p && (u = new Fa(s));
+                for (z = 0; C = x.length, z < C; z++) {
+                  y[k] = v[l ? y[l] = x[z] : z];
+                  d = m(e, y) || '';
                   if (!(i = a[d]))
                     i = a[d] = [], c.push(d);
-                  p ? d = v.remove(n(e, x)) != q : (d = s === n(e, x), v = v || d);
-                  B = j(e, x);
+                  p ? d = u.remove(n(e, y)) != q : (d = s === n(e, y), u = u || d);
+                  B = j(e, y);
                   B = B === q ? '' : B;
                   i.push({
-                    id: l ? w[z] : z,
+                    id: l ? x[z] : z,
                     label: B,
                     selected: d
                   });
                 }
-                p || (t || s === null ? a[''].unshift({
+                p || (r || s === null ? a[''].unshift({
                   id: '',
                   label: '',
-                  selected: !v
-                }) : v || a[''].unshift({
+                  selected: !u
+                }) : u || a[''].unshift({
                   id: '?',
                   label: '',
                   selected: !0
                 }));
-                x = 0;
-                for (w = c.length; x < w; x++) {
-                  d = c[x];
+                y = 0;
+                for (x = c.length; y < x; y++) {
+                  d = c[y];
                   i = a[d];
-                  if (r.length <= x)
+                  if (w.length <= y)
                     s = {
                       element: A.clone().attr('label', d),
                       label: i.label
-                    }, u = [s], r.push(u), f.append(s.element);
-                  else if (u = r[x], s = u[0], s.label != d)
+                    }, v = [s], w.push(v), f.append(s.element);
+                  else if (v = w[y], s = v[0], s.label != d)
                     s.element.attr('label', s.label = d);
                   B = null;
                   z = 0;
-                  for (y = i.length; z < y; z++)
-                    if (d = i[z], v = u[z + 1]) {
-                      B = v.element;
-                      if (v.label !== d.label)
-                        B.text(v.label = d.label);
-                      if (v.id !== d.id)
-                        B.val(v.id = d.id);
+                  for (C = i.length; z < C; z++)
+                    if (d = i[z], u = v[z + 1]) {
+                      B = u.element;
+                      if (u.label !== d.label)
+                        B.text(u.label = d.label);
+                      if (u.id !== d.id)
+                        B.val(u.id = d.id);
                       if (B[0].selected !== d.selected)
-                        B.prop('selected', v.selected = d.selected);
+                        B.prop('selected', u.selected = d.selected);
                     } else
-                      d.id === '' && t ? E = t : (E = C.clone()).val(d.id).attr('selected', d.selected).text(d.label), u.push({
+                      d.id === '' && r ? E = r : (E = D.clone()).val(d.id).attr('selected', d.selected).text(d.label), v.push({
                         element: E,
                         label: d.label,
                         id: d.id,
                         selected: d.selected
                       }), B ? B.after(E) : s.element.append(E), B = E;
-                  for (z++; u.length > z;)
-                    u.pop().element.remove();
+                  for (z++; v.length > z;)
+                    v.pop().element.remove();
                 }
-                for (; r.length > x;)
-                  r.pop()[0].element.remove();
+                for (; w.length > y;)
+                  w.pop()[0].element.remove();
               }
               var i;
               if (!(i = s.match(d)))
                 throw Error('Expected ngOptions in form of \'_select_ (as _label_)? for (_key_,)?_value_ in _collection_\' but got \'' + s + '\'.');
-              var j = c(i[2] || i[1]), k = i[4] || i[6], l = i[5], m = c(i[3] || ''), n = c(i[2] ? i[1] : k), o = c(i[7]), r = [[{
+              var j = c(i[2] || i[1]), k = i[4] || i[6], l = i[5], m = c(i[3] || ''), n = c(i[2] ? i[1] : k), o = c(i[7]), w = [[{
                       element: f,
                       label: ''
                     }]];
-              t && (a(t)(e), t.removeClass('ng-scope'), t.remove());
+              r && (a(r)(e), r.removeClass('ng-scope'), r.remove());
               f.html('');
               f.bind('change', function () {
                 e.$apply(function () {
-                  var a, c = o(e) || [], d = {}, h, i, j, m, s, t;
+                  var a, c = o(e) || [], d = {}, h, i, j, m, r, s;
                   if (p) {
                     i = [];
                     m = 0;
-                    for (t = r.length; m < t; m++) {
-                      a = r[m];
+                    for (s = w.length; m < s; m++) {
+                      a = w[m];
                       j = 1;
-                      for (s = a.length; j < s; j++)
+                      for (r = a.length; j < r; j++)
                         if ((h = a[j].element)[0].selected)
                           h = h.val(), l && (d[l] = h), d[k] = c[h], i.push(n(e, d));
                     }
@@ -4539,12 +4540,12 @@ angular.module('app.letters', []).controller('AController', [
               e.$watch(h);
             }
             if (i[1]) {
-              for (var n = i[0], o = i[1], p = f.multiple, s = f.ngOptions, t = !1, v, C = u(T.createElement('option')), A = u(T.createElement('optgroup')), z = C.clone(), i = 0, B = h.children(), r = B.length; i < r; i++)
+              for (var n = i[0], o = i[1], p = f.multiple, s = f.ngOptions, r = !1, x, D = w(T.createElement('option')), A = w(T.createElement('optgroup')), y = D.clone(), i = 0, B = h.children(), C = B.length; i < C; i++)
                 if (B[i].value == '') {
-                  v = t = B.eq(i);
+                  x = r = B.eq(i);
                   break;
                 }
-              n.init(o, t, z);
+              n.init(o, r, y);
               if (p && (f.required || f.ngRequired)) {
                 var E = function (a) {
                   o.$setValidity('required', !f.required || a && a.length);
@@ -4561,18 +4562,18 @@ angular.module('app.letters', []).controller('AController', [
           }
         };
       }
-    ], Wd = [
+    ], Yd = [
       '$interpolate',
       function (a) {
         var c = {
-            addOption: C,
-            removeOption: C
+            addOption: s,
+            removeOption: s
           };
         return {
           restrict: 'E',
           priority: 100,
           compile: function (d, e) {
-            if (w(e.value)) {
+            if (u(e.value)) {
               var g = a(d.text(), !0);
               g || e.$set('value', d.text());
             }
@@ -4591,123 +4592,138 @@ angular.module('app.letters', []).controller('AController', [
           }
         };
       }
-    ], Xd = I({
+    ], Zd = I({
       restrict: 'E',
       terminal: !0
     });
-  (ca = P.jQuery) ? (u = ca, v(ca.fn, {
-    scope: ua.scope,
-    controller: ua.controller,
-    injector: ua.injector,
-    inheritedData: ua.inheritedData
-  }), ab('remove', !0), ab('empty'), ab('html')) : u = K;
-  Ya.element = u;
+  (aa = P.jQuery) ? (w = aa, D(aa.fn, {
+    scope: va.scope,
+    controller: va.controller,
+    injector: va.injector,
+    inheritedData: va.inheritedData
+  }), db('remove', !0, !0, !1), db('empty', !1, !1, !1), db('html', !1, !1, !0)) : w = L;
+  $a.element = w;
   (function (a) {
-    v(a, {
-      bootstrap: rb,
+    D(a, {
+      bootstrap: tb,
       copy: U,
-      extend: v,
-      equals: fa,
-      element: u,
+      extend: D,
+      equals: ea,
+      element: w,
       forEach: m,
-      injector: sb,
-      noop: C,
-      bind: Ta,
-      toJson: da,
-      fromJson: pb,
-      identity: ma,
-      isUndefined: w,
-      isDefined: y,
+      injector: ub,
+      noop: s,
+      bind: Va,
+      toJson: ba,
+      fromJson: qb,
+      identity: na,
+      isUndefined: u,
+      isDefined: v,
       isString: B,
       isFunction: H,
-      isObject: L,
-      isNumber: Qa,
-      isElement: gc,
+      isObject: M,
+      isNumber: Ra,
+      isElement: ic,
       isArray: E,
-      version: jd,
-      isDate: na,
-      lowercase: z,
+      version: md,
+      isDate: oa,
+      lowercase: y,
       uppercase: la,
       callbacks: { counter: 0 }
     });
-    sa = lc(P);
+    ta = nc(P);
     try {
-      sa('ngLocale');
+      ta('ngLocale');
     } catch (c) {
-      sa('ngLocale', []).provider('$locale', $c);
+      ta('ngLocale', []).provider('$locale', cd);
     }
-    sa('ng', ['ngLocale'], [
+    ta('ng', ['ngLocale'], [
       '$provide',
       function (a) {
-        a.provider('$compile', Db).directive({
-          a: kd,
-          input: cc,
-          textarea: cc,
-          form: ld,
-          script: Td,
-          select: Vd,
-          style: Xd,
-          option: Wd,
-          ngBind: wd,
-          ngBindHtmlUnsafe: yd,
-          ngBindTemplate: xd,
-          ngClass: zd,
-          ngClassEven: Bd,
-          ngClassOdd: Ad,
-          ngCsp: Ed,
-          ngCloak: Cd,
-          ngController: Dd,
-          ngForm: md,
-          ngHide: Md,
-          ngInclude: Gd,
-          ngInit: Hd,
-          ngNonBindable: Id,
-          ngPluralize: Jd,
-          ngRepeat: Kd,
-          ngShow: Ld,
-          ngSubmit: Fd,
-          ngStyle: Nd,
-          ngSwitch: Od,
-          ngSwitchWhen: Pd,
-          ngSwitchDefault: Qd,
-          ngOptions: Ud,
-          ngView: Sd,
-          ngTransclude: Rd,
-          ngModel: rd,
-          ngList: td,
-          ngChange: sd,
-          required: dc,
-          ngRequired: dc,
-          ngValue: vd
-        }).directive(lb).directive(ec);
+        a.provider('$compile', Fb).directive({
+          a: nd,
+          input: ec,
+          textarea: ec,
+          form: od,
+          script: Vd,
+          select: Xd,
+          style: Zd,
+          option: Yd,
+          ngBind: zd,
+          ngBindHtmlUnsafe: Bd,
+          ngBindTemplate: Ad,
+          ngClass: Cd,
+          ngClassEven: Ed,
+          ngClassOdd: Dd,
+          ngCsp: Hd,
+          ngCloak: Fd,
+          ngController: Gd,
+          ngForm: pd,
+          ngHide: Od,
+          ngInclude: Id,
+          ngInit: Jd,
+          ngNonBindable: Kd,
+          ngPluralize: Ld,
+          ngRepeat: Md,
+          ngShow: Nd,
+          ngStyle: Pd,
+          ngSwitch: Qd,
+          ngSwitchWhen: Rd,
+          ngSwitchDefault: Sd,
+          ngOptions: Wd,
+          ngView: Ud,
+          ngTransclude: Td,
+          ngModel: ud,
+          ngList: wd,
+          ngChange: vd,
+          required: fc,
+          ngRequired: fc,
+          ngValue: yd
+        }).directive(mb).directive(gc);
         a.provider({
-          $anchorScroll: uc,
-          $browser: wc,
-          $cacheFactory: xc,
-          $controller: Cc,
-          $document: Dc,
-          $exceptionHandler: Ec,
-          $filter: Rb,
-          $interpolate: Fc,
-          $http: Wc,
-          $httpBackend: Xc,
-          $location: Jc,
-          $log: Kc,
-          $parse: Oc,
-          $route: Rc,
-          $routeParams: Sc,
-          $rootScope: Tc,
-          $q: Pc,
-          $sniffer: Uc,
-          $templateCache: yc,
-          $timeout: ad,
-          $window: Vc
+          $anchorScroll: wc,
+          $browser: zc,
+          $cacheFactory: Ac,
+          $controller: Fc,
+          $document: Gc,
+          $exceptionHandler: Hc,
+          $filter: Tb,
+          $interpolate: Ic,
+          $http: Zc,
+          $httpBackend: $c,
+          $location: Mc,
+          $log: Nc,
+          $parse: Rc,
+          $route: Uc,
+          $routeParams: Vc,
+          $rootScope: Wc,
+          $q: Sc,
+          $sniffer: Xc,
+          $templateCache: Bc,
+          $timeout: dd,
+          $window: Yc
         });
       }
     ]);
-  }(Ya));
-  u(T).ready(function () {
-    jc(T, rb);
+  }($a));
+  w(T).ready(function () {
+    lc(T, tb);
   });
 }(window, document));
-angular.element(document).find('head').append('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak{display:none;}ng\\:form{display:block;}</style>');
+angular.element(document).find('head').append('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak{display:none !important;}ng\\:form{display:block;}</style>');
+var app = angular.module('app', ['app.home']);
+app.config([
+  '$routeProvider',
+  function ($routeProvider) {
+    $routeProvider.when('/', {
+      templateUrl: 'static/partials/home.html',
+      controller: 'HomeController'
+    }).otherwise({ redirectTo: '/' });
+  }
+]);
+angular.module('app.home', []).controller('HomeController', [
+  '$scope',
+  function ($scope) {
+    return;
+  }
+]);
