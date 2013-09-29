@@ -1,4 +1,22 @@
+<script src="js/client-canvas.js"></script>
 <p>Your peer ID is: {{peerID}}</p>
 
 <video id="my-video" muted="true" autoplay></video>
+<canvas id="client-canvas"></canvas>
 <audio id="operator-audio" autoplay></audio>
+
+<style>
+    #my-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -180px 0 0 20px;
+    }
+
+   #client-canvas {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -180px 0 0 20px;
+    }
+</style>

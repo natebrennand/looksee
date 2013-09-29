@@ -28,8 +28,11 @@ angular.module('app.operator', [])
     alert('ERROR: ' + err);
   });
   peer.on('connection', function(dataConnection){
-    $scope.dataConnection = dataConnection;
-    window.dataConnected && window.dataConnected(dataConnection);
+    dataConnection.on('open', function(){
+      $scope.dataConnection = dataConnection;
+      window.dataConnected && window.dataConnected(dataConnection);
+      alert();
+    });
   });
 
   var setupCall = function(call) {
