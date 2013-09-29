@@ -2,13 +2,30 @@
 from flask import Flask
 from flask import make_response
 from flask import request
+from flask.ext.pymongo import PyMongo
 import simplejson
 
 # controllers
-from controllers import twilio
+from controllers import twilio_controller, bitly_controller
 
 app = Flask(__name__)
 app.config.from_object('config.flask_config')
+mongo = PyMongo(app)
+
+
+@app.route('/short_url', methods=['POST'])
+def short_url():
+    url_arg = request.form['url']
+    return bitly_controller.shorten_link(
+        url = url_arg,
+        mongo = mongo)
+
+
+@app.route('/text', methods=['POST'])
+def text():
+    data = simplejson.loads(request.data)
+    phone_number, message = data.phone_number, data.message
+    twilio_controller.send_text(number=phone_number, content=message)
 
 
 @app.route('/', methods=['GET'])

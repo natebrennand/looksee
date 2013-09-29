@@ -5,5 +5,10 @@
 # Flask config
 export FLASK_DEBUG='TRUE'
 
+# mongo config
+export MONGO_HOST="localhost"
+export MONGO_PORT="27017"
+export MONGO_DBNAME="looksee"
+
 # secrets
-source secrets.sh
+source src/config/secrets.sh

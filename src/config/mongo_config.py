@@ -1,0 +1,6 @@
+
+# Mongo config
+
+LINKS = 'links'
+
+
