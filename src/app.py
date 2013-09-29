@@ -13,14 +13,33 @@ app.config.from_object('config.flask_config')
 mongo = PyMongo(app)
 
 
+@app.route('/send_link', methods=['POST'])
+def send_link():
+    """
+    @param request_data: {'url': 'url of the site',
+                          'number': 'phone number',
+                          'message': 'message string'}
+    """
+    data = simplejson.loads(request.data)
+    link = bitly_controller(data)
+
+    data['message'] = data['message'].format(link)
+    output = twilio_controller(twilio_controller.send_text(
+        mongo = mongo,
+        data = data))
+
+    return simplejson.dumps({'message': output})
+
+
 @app.route('/short_url', methods=['POST'])
 def short_url():
     """
     @param request_data: {'url': 'url of the site'}
     """
-    return bitly_controller.shorten_link(
-        mongo = mongo,
-        simplejson.loads(request.data))
+    link = bitly_controller.shorten_link(
+        mongo   = mongo,
+        data    = simplejson.loads(request.data))
+    return simplejson.dumps({'url': link}), 200
 
 
 @app.route('/text', methods=['POST'])
@@ -29,9 +48,10 @@ def text():
     @param request_data: {'number': 'phone number',
                           'message': 'message string'}
     """
-    return twilio_controller.send_text(
+    output = twilio_controller.send_text(
         mongo = mongo,
         data = simplejson.loads(request.data))
+    return simplejson.loads({'message': output}), 200
 
 
 @app.route('/', methods=['GET'])

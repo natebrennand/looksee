@@ -30,7 +30,4 @@ def send_text(mongo=None, data=None):
         'body'      : content
     })
 
-    return simplejson.dumps({
-        'message': 'Sucessfully sent'
-    }), 200
-
+    return 'Sucessfully sent'
