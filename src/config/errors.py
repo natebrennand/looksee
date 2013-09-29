@@ -15,9 +15,15 @@ def BITLY_ERR(status):
     )
 
 
+def TWILIO_RATE_LIMIT():
+    return response(
+        message = 'ERROR: The message was already sent to that number.'
+    )
+
+
 def NO_DATA():
     return response(
-        message = 'No data was found',
+        message = 'ERROR: No data was found',
         code = 400
     )
 
@@ -26,7 +32,7 @@ def NO_DATA():
 #   Utilities
 ########################################
 
-def response(message="Server side error", code=500):
+def response(message="ERROR: Server side error", code=500):
     code = int(code)
     return simplejson.dumps({
         'message': message

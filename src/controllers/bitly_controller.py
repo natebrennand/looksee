@@ -13,6 +13,16 @@ BITLY_TOKEN = environ['BITLY_TOKEN']
 BITLY_URL = 'https://api-ssl.bitly.com'
 
 
+def check_for_link(mongo, link):
+    exisisting = mongo.db[MONGO.LINKS].find_one({
+        'long_url': link
+    })
+    if exisisting:
+        return exisisting
+    if not exisisting:
+        return False
+
+
 def shorten_link(mongo=None, data=None):
     url = data['url']
     # hacky as fuck
@@ -20,6 +30,11 @@ def shorten_link(mongo=None, data=None):
         url = 'http://{}'.format(url)
     if 'localhost:5000' in url:
         url = 'http://looksee.pagekite.me/'+'/'.join(url.split('/')[1::])
+
+    exisisting = check_for_link(mongo, url)
+
+    if exisisting:
+        return exisisting['short_url']
 
     payload = {
         'longUrl'       : url,
@@ -43,8 +58,5 @@ def shorten_link(mongo=None, data=None):
         'short_url' : short_url,
         'bitly_hash': bitly_hash
     })
-
     return short_url
-
-
 
