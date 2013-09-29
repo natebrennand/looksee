@@ -3,6 +3,7 @@ var app = angular.module('app', [
   'ngRoute',
   'app.home',
   'app.client',
+  'app.photos'
   'app.operator'
 ]);
 
@@ -21,6 +22,14 @@ app.config(function ($routeProvider) {
       templateUrl: 'static/partials/operator-room.html',
       controller: 'OperatorRoomController'
     })
-		// default
+    // Photo paths below
+    .when('/send/:id', {
+      templateUrl: 'static/partials/send-photos.html',
+      controller: 'SendRoomController'
+    })
+    .when('/view',{
+      templateUrl: 'static/partials/view-photos.html',
+      controller: 'ViewPhotosController'
+    })
 		.otherwise({redirectTo: '/'});
 });
