@@ -18,12 +18,17 @@ angular.module('app.operator', [])
 
   peer.on('call', function(call){
     // Answer the call automatically
-    call.answer(window.localStream);
+    call.answer($scope.localStream);
     $scope.connected = true;
     setupCall(call);
   });
   peer.on('error', function(err){
     alert('ERROR: ' + err);
+    console.log(err);
+  });
+  peer.on('connection', function(dataConnection){
+    $scope.dataConnection = dataConnection;
+    window.dataConnected && window.dataConnected(dataConnection);
   });
 
   var setupCall = function(call) {
@@ -34,6 +39,7 @@ angular.module('app.operator', [])
     call.on('stream', function(stream) {
       console.log(stream);
       $('#client-video').prop('src', URL.createObjectURL(stream));
+      window.videoConnected && window.videoConnected(stream);
     })
 
     $scope.existingCall = call;
