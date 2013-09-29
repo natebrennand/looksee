@@ -43,7 +43,9 @@ angular.module('app.client', [])
     })
 
     $scope.existingCall = call;
-    call.on('close', function(){});
+    call.on('close', function(){
+      console.log('Call closed.');
+    });
   };
 
   initUserMedia();
