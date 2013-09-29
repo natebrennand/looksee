@@ -38,6 +38,7 @@ angular.module('app.client', [])
     }
 
     call.on('stream', function(stream) {
+      console.log(stream);
       $('#operator-audio').prop('src', URL.createObjectURL(stream))
     })
 
