@@ -1,10 +1,10 @@
 
 angular.module('app.sendLink', [])
-.factory('sendLink', function ($http, APPURL) {
+.factory('sendLink', function ($http) {
     return function (link, number) {
 
         var send_link = function (user_data) {
-            $http.post(APPURL+'/send_link', user_data)
+            $http.post(link, user_data)
                 .success( function(data) {
                     console.log(data);
                 })

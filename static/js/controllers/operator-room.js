@@ -1,11 +1,11 @@
 
 angular.module('app.operator', [])
-.controller('OperatorRoomController', function ($scope, APPURL, sendLink) {
+.controller('OperatorRoomController', function ($scope, sendLink) {
   $scope.peerID = '';
   $scope.connected = false;
 
   $scope.sendRoomLink = function () {
-    sendLink(APPURL + '/room/' + $scope.peerID, $scope.clientNumber);
+    sendLink(window.location.host + '/room/' + $scope.peerID, $scope.clientNumber);
   };
 
   navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
