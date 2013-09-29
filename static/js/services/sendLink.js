@@ -17,7 +17,7 @@ angular.module('app.sendLink', [])
         var user_data = {
             url     : link,
             number  : number,
-            message : 'Click this to stream your camera {}.'
+            message : 'Click this to stream your camera {}'
         };
 
         return send_link(user_data);

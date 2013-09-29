@@ -5,7 +5,7 @@ angular.module('app.operator', [])
   $scope.connected = false;
 
   $scope.sendRoomLink = function () {
-    sendLink(window.location.host + '/room/' + $scope.peerID, $scope.clientNumber);
+    sendLink(window.location.host + '/#/room/' + $scope.peerID, $scope.clientNumber);
   };
 
   navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
