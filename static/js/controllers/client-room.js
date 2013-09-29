@@ -38,7 +38,7 @@ angular.module('app.client', [])
       alert('Data stream is not supported.');
     }
     $scope.dataConnection = peer.connect($scope.id);
-    window.dataConnected && window.dataConnected(dataConnection);
+    window.dataConnected && window.dataConnected($scope.dataConnection);
   };
 
   var setupCall = function(call) {
