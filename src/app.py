@@ -21,8 +21,10 @@ def short_url():
         mongo = mongo)
 
 
-@app.route('/text/<int:phone_number>/<string:message>', methods=['POST'])
-def text(phone_number, message):
+@app.route('/text', methods=['POST'])
+def text():
+    data = simplejson.loads(request.data)
+    phone_number, message = data.phone_number, data.message
     twilio_controller.send_text(number=phone_number, content=message)
 
 
