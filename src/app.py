@@ -15,18 +15,23 @@ mongo = PyMongo(app)
 
 @app.route('/short_url', methods=['POST'])
 def short_url():
-    url_arg = simplejson.loads(request.data)['url']
+    """
+    @param request_data: {'url': 'url of the site'}
+    """
     return bitly_controller.shorten_link(
-        url = url_arg,
-        mongo = mongo)
+        mongo = mongo,
+        simplejson.loads(request.data))
 
 
 @app.route('/text', methods=['POST'])
 def text():
-    data = simplejson.loads(request.data)
-    print 'POST DATA'
-    print data
-    return twilio_controller.send_text(data)
+    """
+    @param request_data: {'number': 'phone number',
+                          'message': 'message string'}
+    """
+    return twilio_controller.send_text(
+        mongo = mongo,
+        data = simplejson.loads(request.data))
 
 
 @app.route('/', methods=['GET'])
