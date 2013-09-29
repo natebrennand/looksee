@@ -115,7 +115,7 @@ function tool_pencil (canvas, context) {
 
 
   function sendToClient(json){
-    alert("fuck your shit, asshole");
+      var x = 2;
   }
 
   function writeMessage(canvas, tool, evt) {
