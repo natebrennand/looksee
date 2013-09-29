@@ -19,7 +19,7 @@ function videoConnected(){
     }
 }
 
-function beginAnnotation(){
+function resizeCanvas(){
     var v = document.getElementById('client-video');
     var canvas = document.getElementById('operator-canvas');
     var context = canvas.getContext('2d');
@@ -28,20 +28,25 @@ function beginAnnotation(){
     canvas.width = cw;
     canvas.height = ch;
 
-    var tool = new tool_pencil(canvas, context);
-    
-    canvas.addEventListener('mousedown', function(evt){writeMessage(canvas, tool, evt)}, false);
-    canvas.addEventListener('mousemove', function(evt){writeMessage(canvas, tool, evt)}, false);
-    canvas.addEventListener('mouseup',   function(evt){writeMessage(canvas, tool, evt)}, false);
-
     var b = document.getElementById('clear-annotation');
-    b.addEventListener('click', function(){
+    b.onclick = function(){
         context.clearRect(0, 0, cw, ch);
         var json = {
             "event": "clear"
         }
         sendToClient(json);
-    }, false);
+    };
+}
+
+function beginAnnotation(){
+    resizeCanvas();
+    var canvas = document.getElementById('operator-canvas');
+    var tool = new tool_pencil(canvas, context);
+    
+    canvas.addEventListener('mousedown', function(evt){writeMessage(canvas, tool, evt)}, false);
+    canvas.addEventListener('mousemove', function(evt){writeMessage(canvas, tool, evt)}, false);
+    canvas.addEventListener('mouseup',   function(evt){writeMessage(canvas, tool, evt)}, false);
+    setTimeout(resizeCanvas, 1000);
 }
  
 // This painting tool works like a drawing pencil which tracks the mouse 
