@@ -8,6 +8,13 @@ def ERROR():
     return response()
 
 
+def BITLY_ERR(status):
+    return response(
+        message = 'BITLY ERROR: '+status,
+        code = 400
+    )
+
+
 def NO_DATA():
     return response(
         message = 'No data was found',

@@ -31,3 +31,4 @@ def send_text(mongo=None, data=None):
     })
 
     return 'Sucessfully sent'
+
