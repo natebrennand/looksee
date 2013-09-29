@@ -15,6 +15,10 @@ BITLY_URL = 'https://api-ssl.bitly.com'
 
 def shorten_link(mongo=None, data=None):
     url = data['url']
+    # hacky as fuck
+    if url == 'localhost:5000/room/30':
+        url = 'http://3n5r.localtunnel.com/room/30'
+
     payload = {
         'longUrl'       : url,
         'access_token'  : BITLY_TOKEN
@@ -24,10 +28,12 @@ def shorten_link(mongo=None, data=None):
         params = payload
     )
 
-    if json_response.status_code is not 200:
+    response = simplejson.loads(json_response.text)
+    if response['status_code'] is not 200:
         return ERR.ERROR()
 
-    response = simplejson.loads(json_response.text)['data']
+    response = response['data']
+    print response
     short_url, bitly_hash = response['url'], response['hash']
 
     mongo.db[MONGO.LINKS].insert({
