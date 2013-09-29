@@ -13,9 +13,8 @@ BITLY_TOKEN = environ['BITLY_TOKEN']
 BITLY_URL = 'https://api-ssl.bitly.com'
 
 
-def shorten_link(url=None, mongo=None):
-    print 'URL: ', url
-
+def shorten_link(mongo=None, data=None):
+    url = data['url']
     payload = {
         'longUrl'       : url,
         'access_token'  : BITLY_TOKEN
@@ -37,7 +36,9 @@ def shorten_link(url=None, mongo=None):
         'bitly_hash': bitly_hash
     })
 
-    return short_url
+    return simplejson.dumps({
+        'url': short_url
+    }), 200
 
 
 
