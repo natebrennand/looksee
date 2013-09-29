@@ -3,8 +3,8 @@ angular.module('app.sendLink', [])
 .factory('sendLink', function ($http) {
     return function (link, number) {
 
-        var send_link = function (user_data) {
-            $http.post(link, user_data)
+        var send_link = function (param_data) {
+            $http.post('/send_link', param_data)
                 .success( function(data) {
                     console.log(data);
                 })
