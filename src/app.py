@@ -21,12 +21,16 @@ def send_link():
                           'message': 'message string'}
     """
     data = simplejson.loads(request.data)
-    link = bitly_controller(data)
+    
+    link = bitly_controller.shorten_link(mongo=mongo, data=data)
+    if isinstance(link, tuple): # if an error
+        return link
 
     data['message'] = data['message'].format(link)
-    output = twilio_controller(twilio_controller.send_text(
-        mongo = mongo,
-        data = data))
+    output = twilio_controller.send_text(mongo  = mongo,
+                                         data   = data)
+    if isinstance(output, tuple): # if an error
+        return output
 
     return simplejson.dumps({'message': output})
 
