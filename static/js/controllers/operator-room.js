@@ -9,7 +9,7 @@ angular.module('app.operator', [])
   };
 
   navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-  var peer = new Peer({key: 's7g9j5vc3ps3jtt9'});
+  var peer = new Peer('123', {key: 'nou8pr83nfwxko6r'});
 
   peer.on('open', function(id) {
     $scope.peerID = id;
@@ -23,8 +23,9 @@ angular.module('app.operator', [])
     setupCall(call);
   });
   peer.on('error', function(err){
-    alert('ERROR: ' + err);
     console.log(err);
+    console.log(err.type);
+    alert('ERROR: ' + err);
   });
   peer.on('connection', function(dataConnection){
     $scope.dataConnection = dataConnection;
