@@ -21,6 +21,6 @@ def NO_DATA():
 
 def response(message="Server side error", code=500):
     code = int(code)
-    return simplejson({
+    return simplejson.dumps({
         'message': message
     }), code
