@@ -31,7 +31,6 @@ angular.module('app.operator', [])
     dataConnection.on('open', function(){
       $scope.dataConnection = dataConnection;
       window.dataConnected && window.dataConnected(dataConnection);
-      alert();
     });
   });
 
