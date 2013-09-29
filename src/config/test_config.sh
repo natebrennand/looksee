@@ -6,4 +6,4 @@
 export FLASK_DEBUG='TRUE'
 
 # secrets
-source secrets.sh
+source src/config/secrets.sh

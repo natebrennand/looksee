@@ -16,4 +16,3 @@ ln -s static src/static
 
 echo 'Your environment is now set up.'
 echo 'Set up your configurations and then try starting the server with the run script'
-
