@@ -9,7 +9,7 @@ angular.module('app.operator', [])
   };
 
   navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-  var peer = new Peer('30', {key: 's7g9j5vc3ps3jtt9'});
+  var peer = new Peer({key: 's7g9j5vc3ps3jtt9'});
 
   peer.on('open', function(id) {
     $scope.peerID = id;
@@ -23,7 +23,7 @@ angular.module('app.operator', [])
     setupCall(call);
   });
   peer.on('error', function(err){
-    alert(err.message);
+    alert('ERROR: ' + err);
   });
 
   var setupCall = function(call) {
@@ -33,7 +33,7 @@ angular.module('app.operator', [])
 
     call.on('stream', function(stream) {
       console.log(stream);
-      $('#client-video').prop('src', URL.createObjectURL(stream))
+      $('#client-video').prop('src', URL.createObjectURL(stream));
     })
 
     $scope.existingCall = call;
