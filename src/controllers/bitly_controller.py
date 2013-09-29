@@ -19,7 +19,7 @@ def shorten_link(mongo=None, data=None):
     if 'http://' not in url:
         url = 'http://{}'.format(url)
     if 'localhost:5000' in url:
-        url = 'http://3n5r.localtunnel.com/'+'/'.join(url.split('/')[1::])
+        url = 'http://looksee.pagekite.me/'+'/'.join(url.split('/')[1::])
 
     payload = {
         'longUrl'       : url,
