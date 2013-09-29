@@ -9,7 +9,7 @@ angular.module('app.operator', [])
   };
 
   navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-  var peer = new Peer('123', {key: 'nou8pr83nfwxko6r'});
+  var peer = new Peer({key: 'nou8pr83nfwxko6r', debug: 3});
 
   peer.on('open', function(id) {
     $scope.peerID = id;
