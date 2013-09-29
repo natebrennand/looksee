@@ -2,26 +2,26 @@
 <!DOCTYPE html>
 <html ng-app="app">
 <head>
-    
+
 </head>
-<!--   <link rel="stylesheet" href="../static/lib/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/lib/bootstrap.min.css">
   <link rel="stylesheet" href="../static/styles/style.min.css">
- -->  <title>Flask/AngularJS</title>
+
+  <title>Flask/AngularJS</title>
 <body>
+  <div ng-view></div>
 
-  <div ng-view>
-        
-  </div>
-  <h2>HI</h2>
-  <a ng-href="/#/">home</a>
-
-  <!-- js -->    
+  <!-- js -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular.min.js'></script>
   <script src='static/jsmin/app.js'></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-route.min.js'></script>
   <!-- for deployment -->
-  <!-- 
+  <!--
   <script src='static/jsmin/app.min.js'></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-  <script src="static/fake_cdn/ui-bootstrap-tpls-0.6.0-SNAPSHOT.min.js"></script>  
+  <script src="static/fake_cdn/ui-bootstrap-tpls-0.6.0-SNAPSHOT.min.js"></script>
   -->
+  <script src="http://cdn.peerjs.com/0.3/peer.js"></script>
 </body>
 </html>

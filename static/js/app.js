@@ -1,13 +1,26 @@
 
 var app = angular.module('app', [
-	'app.home',
+  'ngRoute',
+  'app.home',
+  'app.client',
+  'app.operator'
 ]);
 
-app.config( ['$routeProvider', function ($routeProvider) {
+app.config(function ($routeProvider) {
 	$routeProvider
-
 		// routes
-		.when('/',	{templateUrl: 'static/partials/home.html',      controller: "HomeController"})
+		.when('/', {
+      templateUrl: 'static/partials/home.html',
+      controller: "HomeController"
+    })
+    .when('/room/:id', {
+      templateUrl: 'static/partials/client-room.html',
+      controller: 'ClientRoomController'
+    })
+    .when('/operator', {
+      templateUrl: 'static/partials/operator-room.html',
+      controller: 'OperatorRoomController'
+    })
 		// default
 		.otherwise({redirectTo: '/'});
-}]);
+});
