@@ -3,7 +3,9 @@ angular.module('app.client', [])
 .controller('ClientRoomController', function ($scope, $routeParams) {
   $scope.id = $routeParams.id
   $scope.peerID = '';
+  $scope.connected = false;
 
+  navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
   var peer = new Peer({key: 's7g9j5vc3ps3jtt9'});
 
   peer.on('open', function(id) {
@@ -11,7 +13,7 @@ angular.module('app.client', [])
     $scope.$apply();
   });
   peer.on('error', function(err){
-    alert(err.message);
+    alert('ERROR: ' + err);
   });
 
   var initUserMedia = function() {
@@ -26,6 +28,7 @@ angular.module('app.client', [])
 
   var callOperator = function() {
     var call = peer.call($scope.id, $scope.localStream);
+    $scope.connected = true;
     setupCall(call);
   };
 

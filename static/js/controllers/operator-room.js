@@ -2,6 +2,7 @@
 angular.module('app.operator', [])
 .controller('OperatorRoomController', function ($scope, sendLink) {
   $scope.peerID = '';
+  $scope.connected = false;
 
   var URL = 'http://3g5q.localtunnel.com' // TODO: fix
 
@@ -10,7 +11,7 @@ angular.module('app.operator', [])
   };
 
   navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-  var peer = new Peer({key: 's7g9j5vc3ps3jtt9'});
+  var peer = new Peer('22', {key: 's7g9j5vc3ps3jtt9'});
 
   peer.on('open', function(id) {
     $scope.peerID = id;
@@ -20,6 +21,7 @@ angular.module('app.operator', [])
   peer.on('call', function(call){
     // Answer the call automatically
     call.answer(window.localStream);
+    $scope.connected = true;
     setupCall(call);
   });
   peer.on('error', function(err){
