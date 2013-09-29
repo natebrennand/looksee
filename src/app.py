@@ -5,10 +5,15 @@ from flask import request
 import simplejson
 
 # controllers
-from controllers import twilio
+from controllers import twilio_controller
 
 app = Flask(__name__)
 app.config.from_object('config.flask_config')
+
+
+@app.route('/text/<int:phone_number>/<string:message>', methods=['POST'])
+def text(phone_number, message):
+    twilio_controller.send_text(number=phone_number, content=message)
 
 
 @app.route('/', methods=['GET'])
