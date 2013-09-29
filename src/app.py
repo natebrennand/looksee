@@ -51,7 +51,7 @@ def text():
     output = twilio_controller.send_text(
         mongo = mongo,
         data = simplejson.loads(request.data))
-    return simplejson.loads({'message': output}), 200
+    return simplejson.dumps({'message': output}), 200
 
 @app.route('/', methods=['GET'])
 def home():
@@ -60,3 +60,4 @@ def home():
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
+
