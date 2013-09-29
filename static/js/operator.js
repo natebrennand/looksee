@@ -23,13 +23,10 @@ function beginAnnotation(){
     var v = document.getElementById('client-video');
     var canvas = document.getElementById('operator-canvas');
     var context = canvas.getContext('2d');
-    var cw,ch;
-    v.addEventListener('load', function(){
-        cw = v.clientWidth;
-        ch = v.clientHeight;
-        canvas.width = cw;
-        canvas.height = ch;
-    },false);
+    var cw = v.clientWidth;
+    var ch = v.clientHeight;
+    canvas.width = cw;
+    canvas.height = ch;
 
     var tool = new tool_pencil(canvas, context);
     
@@ -120,6 +117,7 @@ function tool_pencil (canvas, context) {
   function sendToClient(json){
     alert("fuck your shit, asshole");
   }
+
   function writeMessage(canvas, tool, evt) {
     var mousePos = getMousePos(canvas, evt);
 
