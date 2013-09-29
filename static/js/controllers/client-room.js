@@ -21,6 +21,7 @@ angular.module('app.client', [])
       $scope.localStream = stream;
       $('#my-video').prop('src', URL.createObjectURL(stream));
       callOperator();
+      startDataStream();
     }, function(err){
       console.log('ERROR: ' + err)
     });
@@ -30,6 +31,14 @@ angular.module('app.client', [])
     var call = peer.call($scope.id, $scope.localStream);
     $scope.connected = true;
     setupCall(call);
+  };
+
+  var startDataStream = function() {
+    if (!util.supports.data) {
+      alert('Data stream is not supported.');
+    }
+    $scope.dataConnection = peer.connect($scope.id);
+    window.dataConnected(dataConnection);
   };
 
   var setupCall = function(call) {
