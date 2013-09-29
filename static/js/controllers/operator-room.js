@@ -39,7 +39,7 @@ angular.module('app.operator', [])
     call.on('stream', function(stream) {
       console.log(stream);
       $('#client-video').prop('src', URL.createObjectURL(stream));
-      window.videoConnected(stream);
+      window.videoConnected && window.videoConnected(stream);
     })
 
     $scope.existingCall = call;

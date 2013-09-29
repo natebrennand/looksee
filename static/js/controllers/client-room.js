@@ -38,20 +38,20 @@ angular.module('app.client', [])
       alert('Data stream is not supported.');
     }
     $scope.dataConnection = peer.connect($scope.id);
-    window.dataConnected && window.dataConnected(dataConnection);
+    window.dataConnected && window.dataConnected($scope.dataConnection);
   };
 
   var setupCall = function(call) {
-    if ($scope.existingCall) {
-      $scope.existingCall.close();
-    }
 
     call.on('stream', function(stream) {
+      if ($scope.existingCall) {
+        $scope.existingCall.close();
+      }
+      $scope.existingCall = call;
       console.log(stream);
       $('#operator-audio').prop('src', URL.createObjectURL(stream))
     })
 
-    $scope.existingCall = call;
     call.on('close', function(){
       console.log('Call closed.');
     });

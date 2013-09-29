@@ -16,8 +16,10 @@ BITLY_URL = 'https://api-ssl.bitly.com'
 def shorten_link(mongo=None, data=None):
     url = data['url']
     # hacky as fuck
-    if url == 'localhost:5000/room/30':
-        url = 'http://3n5r.localtunnel.com/room/30'
+    if 'http://' not in url:
+        url = 'http://{}'.format(url)
+    if 'localhost:5000' in url:
+        url = 'http://3n5r.localtunnel.com/'+'/'.join(url.split('/')[1::])
 
     payload = {
         'longUrl'       : url,
