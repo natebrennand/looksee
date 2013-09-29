@@ -27,7 +27,8 @@ def send_text(mongo=None, data=None):
     mongo.db[MONGO.TEXTS].insert({
         'receiver'  : number,
         'sender'    : TWILIO_NUMBER,
-        'body'      : content
+        'body'      : content,
+        'twilio_obj': str(message)
     })
 
     return 'Sucessfully sent'

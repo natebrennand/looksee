@@ -30,11 +30,10 @@ def shorten_link(mongo=None, data=None):
 
     response = simplejson.loads(json_response.text)
     if response['status_code'] is not 200:
-        print 'ERROR CREATING BITLY LINK: ', request['status_txt']
-        return ERR.BITLY_ERR(request['status_txt'])
+        print 'ERROR CREATING BITLY LINK: ', response['status_txt']
+        return ERR.BITLY_ERR(response['status_txt'])
 
     response = response['data']
-    print response
     short_url, bitly_hash = response['url'], response['hash']
 
     mongo.db[MONGO.LINKS].insert({
