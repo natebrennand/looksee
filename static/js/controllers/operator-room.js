@@ -1,7 +1,13 @@
 
 angular.module('app.operator', [])
-.controller('OperatorRoomController', function ($scope) {
+.controller('OperatorRoomController', function ($scope, sendLink) {
   $scope.peerID = '';
+
+  var URL = 'http://3g5q.localtunnel.com' // TODO: fix
+
+  $scope.sendRoomLink = function () {
+    sendLink(URL + '/room/' + $scope.peerID, $scope.clientNumber);
+  };
 
   navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
   var peer = new Peer({key: 's7g9j5vc3ps3jtt9'});

@@ -3,7 +3,8 @@ var app = angular.module('app', [
   'ngRoute',
   'app.home',
   'app.client',
-  'app.operator'
+  'app.operator',
+  'app.services'
 ]);
 
 app.config(function ($routeProvider) {
