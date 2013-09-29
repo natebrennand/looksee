@@ -6,7 +6,7 @@ angular.module('app.client', [])
   $scope.connected = false;
 
   navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-  var peer = new Peer({key: 's7g9j5vc3ps3jtt9'});
+  var peer = new Peer({key: 'nou8pr83nfwxko6r'});
 
   peer.on('open', function(id) {
     $scope.peerID = id;
@@ -14,6 +14,7 @@ angular.module('app.client', [])
   });
   peer.on('error', function(err){
     alert('ERROR: ' + err);
+    console.log(err);
   });
 
   var initUserMedia = function() {
