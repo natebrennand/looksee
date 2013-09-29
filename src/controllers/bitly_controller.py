@@ -37,7 +37,9 @@ def shorten_link(url=None, mongo=None):
         'bitly_hash': bitly_hash
     })
 
-    return short_url
+    return simplejson.dumps({
+        'url': short_url
+    }), 200
 
 
 
