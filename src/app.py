@@ -53,7 +53,6 @@ def text():
         data = simplejson.loads(request.data))
     return simplejson.loads({'message': output}), 200
 
-
 @app.route('/', methods=['GET'])
 def home():
     return make_response(open('src/static/base.html').read())
